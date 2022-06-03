@@ -3,6 +3,7 @@
  * @author Ty
  * @since 3.0.0
  */
+
  const snekfetch = require('snekfetch');
 
 module.exports = {
