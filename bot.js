@@ -11,7 +11,7 @@ const { Client, Collection, Intents } = require("discord.js");
 const { REST } = require("@discordjs/rest");
 const { Routes } = require("discord-api-types/v9");
 const { token, owner, client_id, test_guild_id } = require("./config.json");
-global.adminIDs = [owner, "217103420073574401"];
+global.adminIDs = [owner, "178273444041981952"];
 global.roleID = "980346316720857100";
 
 /**
