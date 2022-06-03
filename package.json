@@ -43,8 +43,7 @@
 		"discord.js": "^13.7.0",
 		"mysql2": "^2.3.3",
 		"simple-git": "^3.7.1",
-		"simple-json-db": "^2.0.0",
-		"snekfetch": "^3.6.0"
+		"simple-json-db": "^2.0.0"
 	},
 	"devDependencies": {
 		"nodemon": "^2.0.16"

@@ -15,11 +15,7 @@ module.exports = {
 
 	async execute(interaction) {
 		await interaction.reply({
-			x : snek.get('https://www.reddit.com/r/dankmemes.json?sort=top&t=week').query({ limit: 800 }),
-            allowed : message.channel.nsfw ? body.data.children : body.data.children.filter(post => !post.data.over_18),
-            randomnumber : Math.floor(Math.random() * allowed.length),
-            embed : new Discord.RichEmbed().setColor(0x00A2E8).setTitle(allowed[randomnumber].data.title).setDescription("Posted by: " + allowed[randomnumber].data.author).setImage(allowed[randomnumber].data.url).addField("Other info:", "Up votes: " + allowed[randomnumber].data.ups + " / Comments: " + allowed[randomnumber].data.num_comments).setFooter("Memes provided by r/dankmemes"),
-			content: embed,
+			content: Math.random() > 0.5 ? ":eggplant:" : ":eggplant:"
 		});
 		return;
 	},
