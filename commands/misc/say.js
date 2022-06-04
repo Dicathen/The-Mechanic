@@ -3,6 +3,6 @@ module.exports = {
 	description: "Says something",
 
 	execute(message, args) {
-		message.channel.send({ content: "Pong. a nother test..." });
+		message.channel.send({ content: args});
 	},
 };
