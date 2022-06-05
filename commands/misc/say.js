@@ -10,7 +10,6 @@ module.exports = {
 			  lastMessage.delete();
 			}
 		  });
-		  const messageText = args.content.split(' ');
-		message.channel.send({ content: messageText});
+		message.channel.send({ content: typeof(args)});
 	},
 };
