@@ -28,6 +28,6 @@ module.exports = {
 					.setLabel('D20')
 					.setStyle('PRIMARY')
 			);
-		await interaction.reply({ content: "You rolled a " + interaction, components: [row] });
+		await interaction.reply({ content: "Please a die from the selection below.", components: [row] });
 	},
 };

@@ -15,7 +15,7 @@ module.exports = {
 
 	async execute(interaction) {
 		await interaction.reply({
-			content: String(Math.random * 6 + 1),
+			content: "You rolled a D6 and got a " + String(Math.random * 6 + 1) + "!",
 		});
 		return;
 	},
