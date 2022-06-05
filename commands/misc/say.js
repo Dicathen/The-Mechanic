@@ -10,10 +10,10 @@ module.exports = {
 			  lastMessage.delete();
 			}
 		});
-		const messageText = "";
-		args.forEach(element => {
-			messageText += element + " ";
-		});
+		var messageText = "";
+		for(var i = 0; i < args.length; i++) {
+			messageText += args[i] + " ";
+		}
 		message.channel.send({ content: messageText});
 	},
 };
