@@ -10,7 +10,7 @@ module.exports = {
 			  lastMessage.delete();
 			}
 		  });
-		  const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
-		message.channel.send({ content: args});
+		  const messageText = args.slice(config.prefix.length).trim().split(/ +/g);
+		message.channel.send({ content: messageText});
 	},
 };
