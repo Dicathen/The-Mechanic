@@ -1,6 +1,6 @@
 function image(message){
     var options = {
-        url: 'http://results.dogpile.com/serp?qc=images&q=' + srch,
+        url: 'http://results.dogpile.com/serp?qc=images&q=' + 'cat',   // Cat is placeholder for variable in search
         method: 'GET',
         headers: {
             'Accept': 'text/html',
