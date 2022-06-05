@@ -1,24 +1,16 @@
-/**
- * @file Sample Use Context Menu interaction
- * @author Krish Garg
- * @since 3.0.0
- */
-
 module.exports = {
 	data: {
-		name: "sample",
+		name: "blows",
 		type: 2, // 2 is for user context menus
 	},
 
 	/**
-	 * @description Executes when the context option with name "sample" is clicked.
-	 * @author Krish Garg
 	 * @param {import("discord.js").ContextMenuInteraction} interaction The Interaction Object of the command.
 	 */
 
 	async execute(interaction) {
 		await interaction.reply({
-			content: "I am a sample user context menu.",
+			content: interaction.user.username + " BLOWS! :muscle:",
 		});
 		return;
 	},
