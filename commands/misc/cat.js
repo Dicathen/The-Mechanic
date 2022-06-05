@@ -1,7 +1,7 @@
 //const RedditImage = require('reddit-random-image');
-import search from 'reddit-random-image';
 
 module.exports = {
+	import: 'reddit-random-image',
 	name: "cat",
 	description: "Cat picture",
 
