@@ -1,20 +1,12 @@
-/**
- * @file Sample help command with slash command.
- * @author Naman Vrati
- * @author Thomas Fournier <thomas@artivain.com>
- * @since 3.0.0
- * @version 3.1.0
- */
-
-// Deconstructed the constants we need in this file.
-
 const { MessageEmbed, Collection } = require("discord.js");
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const { MessageActionRow, MessageSelectMenu } = require('discord.js');
+
+// Specifically for button interactions.
 const { MessageButton } = require('discord.js');
 
 module.exports = {
-	// The data needed to register slash commands to Discord.
+	// The only part that makes this different from a default command.
 	data: new SlashCommandBuilder()
 		.setName("dice")
 		.setDescription(
