@@ -4,7 +4,7 @@ module.exports = {
 	name: "dice",
 	description: "Roll a die",
 
-	execute(message, args) {
+	async execute(message, args) {
 		const row = new MessageActionRow()
 			.addComponents(
 				new MessageButton()
