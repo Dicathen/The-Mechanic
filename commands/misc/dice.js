@@ -8,27 +8,27 @@ module.exports = {
 		const row = new MessageActionRow()
 			.addComponents(
 				new MessageButton()
-					.setCustomId('4')
+					.setCustomId('d4')
 					.setLabel('D4')
 					.setStyle('PRIMARY'),
 				new MessageButton()
-					.setCustomId('6')
+					.setCustomId('d6')
 					.setLabel('D6')
 					.setStyle('PRIMARY'),
 				new MessageButton()
-					.setCustomId('8')
+					.setCustomId('d8')
 					.setLabel('D8')
 					.setStyle('PRIMARY'),
 				new MessageButton()
-					.setCustomId('10')
+					.setCustomId('d10')
 					.setLabel('D10')
 					.setStyle('PRIMARY'),
 				new MessageButton()
-					.setCustomId('12')
+					.setCustomId('d12')
 					.setLabel('D12')
 					.setStyle('PRIMARY'),
 				new MessageButton()
-					.setCustomId('20')
+					.setCustomId('d20')
 					.setLabel('D20')
 					.setStyle('PRIMARY'),
 			);
