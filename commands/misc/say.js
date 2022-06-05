@@ -3,7 +3,7 @@ module.exports = {
 	description: "Says something",
 
 	execute(message, messageText) {
-		channel.messages.fetch({ limit: 1 }).then(messages => {
+		message.channel.messages.fetch({ limit: 1 }).then(messages => {
 			let lastMessage = messages.first();
 			
 			if (!lastMessage.author.bot) {
