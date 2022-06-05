@@ -28,6 +28,6 @@ module.exports = {
 					.setLabel('D20')
 					.setStyle('PRIMARY')
 			);
-		await interaction.reply({ content: Math.random * Number(interaction.customID), components: [row] });
+		await interaction.reply({ content: String(Math.random * Number(interaction.customID)), components: [row] });
 	},
 };
