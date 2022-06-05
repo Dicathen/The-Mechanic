@@ -2,7 +2,7 @@ module.exports = {
 	name: "say",
 	description: "Says something",
 
-	execute(message, messageText) {
+	execute(message, args) {
 		message.channel.messages.fetch({ limit: 1 }).then(messages => {
 			let lastMessage = messages.first();
 			
@@ -10,6 +10,7 @@ module.exports = {
 			  lastMessage.delete();
 			}
 		  });
-		message.channel.send({ content: messageText + " "});
+		  const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+		message.channel.send({ content: args});
 	},
 };
