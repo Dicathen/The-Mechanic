@@ -1,4 +1,4 @@
-const search = require('reddit-random-image/search');
+const search = require('reddit-random-image');
 
 module.exports = {
 	name: "cat",
