@@ -32,6 +32,6 @@ module.exports = {
 					.setLabel('D20')
 					.setStyle('PRIMARY'),
 			);
-		await interaction.reply({ content: Math.random() * 4 + " ", components: [row] });
+		await interaction.reply({ content: "INSERT NUMBER", components: [row] });
 	},
 };
