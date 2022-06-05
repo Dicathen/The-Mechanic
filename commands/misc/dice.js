@@ -23,14 +23,6 @@ module.exports = {
 					.setCustomId('d10')
 					.setLabel('D10')
 					.setStyle('PRIMARY'),
-				new MessageButton()
-					.setCustomId('d12')
-					.setLabel('D12')
-					.setStyle('PRIMARY'),
-				new MessageButton()
-					.setCustomId('d20')
-					.setLabel('D20')
-					.setStyle('PRIMARY'),
 			);
 		await interaction.reply({ content: "INSERT NUMBER", components: [row] });
 	},
