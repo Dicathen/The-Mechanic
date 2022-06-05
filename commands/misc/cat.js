@@ -1,6 +1,3 @@
-const cheerio = require('cheerio');
-const request = require('request');
-
 function image(message){
     var options = {
         url: 'http://results.dogpile.com/serp?qc=images&q=' + srch,
