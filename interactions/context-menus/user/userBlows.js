@@ -1,6 +1,6 @@
 module.exports = {
 	data: {
-		name: "blows",
+		name: "userBlows",
 		type: 2, // 2 is for user context menus
 	},
 

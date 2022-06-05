@@ -1,6 +1,6 @@
 module.exports = {
 	data: {
-		name: "Blows",
+		name: "messageBlows",
 		type: 3, // 3 is for message context menus
 	},
 
