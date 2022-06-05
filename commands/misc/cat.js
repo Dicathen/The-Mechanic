@@ -1,14 +1,11 @@
-const ImageSearch = require('free-google-image-search');
+const RedditImage = require('reddit-random-image');
 
 module.exports = {
 	name: "cat",
 	description: "Cat picture",
 
 	execute(message, args) {
-		GoogleImageSearch.searchImage("cat")
-		.then((res) => {
-    		console.log(res); // This will return array of image URLs
-		})
-		message.channel.send({ content: "cat"});
+		const image = await search('CatGifs');
+		message.channel.send({ content: image});
 	},
 };

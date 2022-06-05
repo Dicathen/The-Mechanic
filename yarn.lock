@@ -419,11 +419,6 @@
     "combined-stream" "^1.0.8"
     "mime-types" "^2.1.12"
 
-"free-google-image-search@^1.0.0":
-  "integrity" "sha512-xI95uhsY1EOqdzMg0mWHW8IIuCcS7zVHIBYBf63Nvo6kPnRxvWinW3kNICR+kTZrxKDZsjI8WHcF7/jqqmwhvA=="
-  "resolved" "https://registry.npmjs.org/free-google-image-search/-/free-google-image-search-1.0.0.tgz"
-  "version" "1.0.0"
-
 "generate-function@^2.3.1":
   "integrity" "sha512-eeB5GfMNeevm/GRYq20ShmsaGcmI81kIX2K9XQx5miC8KdHaC6Jm0qQ8ZNeGOi7wYB8OsdxKs+Y2oVuTFuVwKQ=="
   "resolved" "https://registry.npmjs.org/generate-function/-/generate-function-2.3.1.tgz"
@@ -820,6 +815,11 @@
   dependencies:
     "escape-goat" "^2.0.0"
 
+"random-item@^3.1.0":
+  "integrity" "sha512-0DyAT8LYBNQKSkqcPjia/HNoWCZ5JWBdAQWjBQVh5DMVv3Fv7V90I8/AuUf8NW4zdFn27i9qj8Kp6wI5JsiiOA=="
+  "resolved" "https://registry.npmjs.org/random-item/-/random-item-3.1.0.tgz"
+  "version" "3.1.0"
+
 "rc@^1.2.8":
   "integrity" "sha512-y3bGgqKj3QBdxLbLkomlohkvsA8gdAiUQlSBJnBhfn+BPxg4bc62d8TcBW15wavDfgexCgccckhcZvywyQYPOw=="
   "resolved" "https://registry.npmjs.org/rc/-/rc-1.2.8.tgz"
@@ -836,6 +836,14 @@
   "version" "3.6.0"
   dependencies:
     "picomatch" "^2.2.1"
+
+"reddit-random-image@^1.0.2":
+  "integrity" "sha512-HWNTDp/wRaOHNLJ6JJScOoDVB0nTRleq3UtYc4OeaPItpfPFKsGHDibHYDzURdRwOEqYLFlKAeKdZJMdeHFlOA=="
+  "resolved" "https://registry.npmjs.org/reddit-random-image/-/reddit-random-image-1.0.2.tgz"
+  "version" "1.0.2"
+  dependencies:
+    "node-fetch" "^2.6.1"
+    "random-item" "^3.1.0"
 
 "registry-auth-token@^4.0.0":
   "integrity" "sha512-6gkSb4U6aWJB4SF2ZvLb76yCBjcvufXBqvvEx1HbmKPkutswjW1xNVRY0+daljIYRbogN7O0etYSlbiaEQyMyw=="
