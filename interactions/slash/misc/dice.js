@@ -37,6 +37,6 @@ module.exports = {
 					.setLabel('D20')
 					.setStyle('PRIMARY')
 			);
-		await interaction.reply({ content: "Please a die from the selection below.", components: [row] });
+		await interaction.reply({ content: "Please choose a die from the selection below.", components: [row] });
 	},
 };
