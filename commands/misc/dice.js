@@ -8,22 +8,26 @@ module.exports = {
 		const row = new MessageActionRow()
 			.addComponents(
 				new MessageButton()
-					.setCustomId('d4')
+					.setCustomId('4')
 					.setLabel('D4')
 					.setStyle('PRIMARY'),
 				new MessageButton()
-					.setCustomId('d6')
+					.setCustomId('6')
 					.setLabel('D6')
 					.setStyle('PRIMARY'),
 				new MessageButton()
-					.setCustomId('d8')
+					.setCustomId('8')
 					.setLabel('D8')
 					.setStyle('PRIMARY'),
 				new MessageButton()
-					.setCustomId('d10')
+					.setCustomId('10')
 					.setLabel('D10')
 					.setStyle('PRIMARY'),
+				new MessageButton()
+					.setCustomId('20')
+					.setLabel('D20')
+					.setStyle('PRIMARY')
 			);
-		await interaction.reply({ content: "INSERT NUMBER", components: [row] });
+		await interaction.reply({ content: Math.random * Number(interaction.customID), components: [row] });
 	},
 };
