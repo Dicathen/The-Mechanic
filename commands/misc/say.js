@@ -10,6 +10,6 @@ module.exports = {
 			  lastMessage.delete();
 			}
 		  });
-		message.channel.send({ content: typeof(args)});
+		message.channel.send({ content: JSON.stringify(args)});
 	},
 };
