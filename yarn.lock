@@ -419,6 +419,11 @@
     "combined-stream" "^1.0.8"
     "mime-types" "^2.1.12"
 
+"free-google-image-search@^1.0.0":
+  "integrity" "sha512-xI95uhsY1EOqdzMg0mWHW8IIuCcS7zVHIBYBf63Nvo6kPnRxvWinW3kNICR+kTZrxKDZsjI8WHcF7/jqqmwhvA=="
+  "resolved" "https://registry.npmjs.org/free-google-image-search/-/free-google-image-search-1.0.0.tgz"
+  "version" "1.0.0"
+
 "generate-function@^2.3.1":
   "integrity" "sha512-eeB5GfMNeevm/GRYq20ShmsaGcmI81kIX2K9XQx5miC8KdHaC6Jm0qQ8ZNeGOi7wYB8OsdxKs+Y2oVuTFuVwKQ=="
   "resolved" "https://registry.npmjs.org/generate-function/-/generate-function-2.3.1.tgz"
