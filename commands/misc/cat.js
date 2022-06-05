@@ -5,7 +5,7 @@ module.exports = {
 	description: "Cat picture",
 
 	execute(message, args) {
-		const image = await search('CatGifs');
+		const image = search('CatGifs');
 		message.channel.send({ content: image});
 	},
 };
