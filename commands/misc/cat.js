@@ -1,5 +1,5 @@
 const { cheerio } = require('cheerio');
-const { requestSearch } = require('request');
+const { request } = require('request');
 
 function image(message){
     var options = {
@@ -11,7 +11,7 @@ function image(message){
         }
         
     };
-    requestSearch(options, function(error, response, responseBody){
+    request(options, function(error, response, responseBody){
         if (error){
             return;
         }
