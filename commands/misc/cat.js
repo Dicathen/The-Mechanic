@@ -31,7 +31,7 @@ module.exports = {
 	description: "Cat picture",
 
 	execute(message, args) {
-		image("cat");
+		image(message);
 		//message.channel.send({ content: image("cat")});
 	},
 };
