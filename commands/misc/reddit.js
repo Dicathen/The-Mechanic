@@ -1,6 +1,6 @@
 const { getPost } = require('random-reddit');
 
-async function redditPost(messageText) {
+async function redditPost(message, messageText) {
 	const nsfw = false;
 	if(message.channel.nsfw){
 		nsfw = true;
@@ -15,7 +15,7 @@ async function redditPost(messageText) {
 }
 
 async function sendImage(message, messageText) {
-	const image = await redditPost(messageText);
+	const image = await redditPost(message, messageText);
 	if(image.length > 0) {
 		return message.channel.send(image);
 	}
