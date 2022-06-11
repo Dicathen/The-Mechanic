@@ -6,7 +6,7 @@ async function redditImage() {
 	return image;
 }
 
-async function sendImage() {
+async function sendImage(message) {
 	const image = await redditImage();
 	console.log(image);
 	return message.channel.send("GATO", { files: [image] });
@@ -17,8 +17,6 @@ module.exports = {
 	description: "Cat picture",
 
 	execute(message, args) {
-		const image = redditImage();
-		message.channel.send("GATO", { files: [image] });
-		console.log(image);
+		sendImage(message);
 	},
 };
