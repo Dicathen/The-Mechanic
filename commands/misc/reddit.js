@@ -1,6 +1,9 @@
 const { getImage } = require('random-reddit');
 
 async function redditImage(messageText) {
+	if(getImage(messageText) === null) {
+		return "No image found";
+	}
 	const image = await getImage(messageText);
 	return image;
 }
