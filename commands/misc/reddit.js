@@ -14,8 +14,10 @@ async function redditImage(messageText) {
 
 async function sendImage(message, messageText) {
 	const image = await redditImage(messageText);
-	console.log('sendf image');
-	return message.channel.send(image);
+	if(image.length > 0) {
+		return message.channel.send(image);
+	}
+	return message.channel.send("THERE WAS AN ERROR.");
 }
 
 module.exports = {
