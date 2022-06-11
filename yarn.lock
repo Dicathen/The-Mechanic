@@ -820,11 +820,6 @@
   dependencies:
     "escape-goat" "^2.0.0"
 
-"random-item@^3.1.0":
-  "integrity" "sha512-0DyAT8LYBNQKSkqcPjia/HNoWCZ5JWBdAQWjBQVh5DMVv3Fv7V90I8/AuUf8NW4zdFn27i9qj8Kp6wI5JsiiOA=="
-  "resolved" "https://registry.npmjs.org/random-item/-/random-item-3.1.0.tgz"
-  "version" "3.1.0"
-
 "random-reddit@^2.0.3":
   "integrity" "sha512-pc0QR2sQO+PEo8w2HLjEW24PInKm5I5cWX2FkMDpLHLE1PU+15vPzOnFw/h/JBhBQh0ZU/XsM1wgzu41pp739g=="
   "resolved" "https://registry.npmjs.org/random-reddit/-/random-reddit-2.0.3.tgz"
@@ -854,14 +849,6 @@
   "integrity" "sha512-jdTvcdJWc+DDtogqXkv796Y5oBx9YE4IEU4yRfnipdv3+F+9fsW6VEDJDmpPlTaZ6cZkFvKhdYV9/9ooYquU6A=="
   "resolved" "https://registry.npmjs.org/reddit-interfaces/-/reddit-interfaces-1.0.7.tgz"
   "version" "1.0.7"
-
-"reddit-random-image@^1.0.2":
-  "integrity" "sha512-HWNTDp/wRaOHNLJ6JJScOoDVB0nTRleq3UtYc4OeaPItpfPFKsGHDibHYDzURdRwOEqYLFlKAeKdZJMdeHFlOA=="
-  "resolved" "https://registry.npmjs.org/reddit-random-image/-/reddit-random-image-1.0.2.tgz"
-  "version" "1.0.2"
-  dependencies:
-    "node-fetch" "^2.6.1"
-    "random-item" "^3.1.0"
 
 "registry-auth-token@^4.0.0":
   "integrity" "sha512-6gkSb4U6aWJB4SF2ZvLb76yCBjcvufXBqvvEx1HbmKPkutswjW1xNVRY0+daljIYRbogN7O0etYSlbiaEQyMyw=="

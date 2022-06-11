@@ -43,7 +43,6 @@
 		"discord.js": "^13.7.0",
 		"mysql2": "^2.3.3",
 		"random-reddit": "^2.0.3",
-		"reddit-random-image": "^1.0.2",
 		"simple-git": "^3.7.1",
 		"simple-json-db": "^2.0.0"
 	},
