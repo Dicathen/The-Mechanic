@@ -2,6 +2,7 @@ const { getPost, getImage} = require('random-reddit');
 
 async function redditImage() {
 	const image = await getImage('cat');
+	console.log(image);
 	return image;
 }
 
