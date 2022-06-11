@@ -1,8 +1,7 @@
 const { getPost, getImage} = require('random-reddit');
 
 async function redditImage() {
-	const post = await getPost('cat');
-	const image = await getImage(post.url);
+	const image = await getImage('cat');
 	return image;
 }
 
