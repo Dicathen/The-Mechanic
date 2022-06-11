@@ -5,13 +5,15 @@ async function redditPost(message, messageText) {
 	if(message.channel.nsfw == true){
 		nsfw = true;
 	}
-	console.log(nsfw);
 	let options = {
 		imageOnly: true,
 		allowNSFW: nsfw
 	};
 	const image = await getPost(messageText, options);
-	return image.url;
+	if(image.url != null) {
+		return image.url;
+	}
+	return "";
 }
 
 async function sendImage(message, messageText) {
