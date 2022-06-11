@@ -2,6 +2,9 @@ const { getImage } = require('random-reddit');
 
 async function redditImage(messageText) {
 	const image = await getImage(messageText);
+	if(image.over_18) {
+		return "This image is NSFW.";
+	}
 	return image;
 }
 
@@ -22,7 +25,6 @@ module.exports = {
 		if(args.length > 0) {
 			var messageText = String(args[0]);
 		}
-		console.log(messageText);
 		sendImage(message, messageText);
 	},
 };
