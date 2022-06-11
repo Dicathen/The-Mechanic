@@ -6,6 +6,12 @@ async function redditImage() {
 	return image;
 }
 
+async function sendImage() {
+	const image = await redditImage();
+	console.log(image);
+	return message.channel.send("GATO", { files: [image] });
+}
+
 module.exports = {
 	name: "cat",
 	description: "Cat picture",
