@@ -16,7 +16,7 @@ module.exports = {
 
 	execute(message, args) {
 		var messageText = "";
-		for(var i = 0; i < args.length; i++) {
+		for(var i = 1; i < args.length; i++) {
 			messageText += args[i] + " ";
 		}
 		sendImage(message, messageText);
