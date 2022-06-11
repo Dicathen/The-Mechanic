@@ -2,16 +2,14 @@ const { getPost } = require('random-reddit');
 
 async function redditPost(message, messageText) {
 	const nsfw = false;
-	console.log(message.channel.nsfw);
 	if(message.channel.nsfw == true){
 		nsfw = true;
 	}
 	let options = {
 		imageOnly: true,
 		allowNSFW: nsfw
-	 };
+	};
 	const image = await getPost(messageText, options);
-	console.log(image.url);
 	return image.url;
 }
 
