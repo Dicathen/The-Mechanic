@@ -9,7 +9,7 @@ async function redditImage() {
 async function sendImage(message) {
 	const image = await redditImage();
 	console.log(image);
-	return message.channel.send("GATO", { files: [image] });
+	return message.channel.send(image);
 }
 
 module.exports = {
