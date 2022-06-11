@@ -19,7 +19,7 @@ module.exports = {
 
 	execute(message, args) {
 		var messageText = "cats";
-		if(args.length != 0) {
+		if(args.length !== 0) {
 			var messageText = String(args[0]);
 		}
 		console.log(messageText);
