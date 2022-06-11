@@ -10,11 +10,7 @@ async function redditPost(message, messageText) {
 		allowNSFW: nsfw
 	};
 	const image = await getPost(messageText, options);
-	console.log(typeof image.url);
-	if(image.url == undefined) {
-		console.log("HHHHHHHHHHHHHHHHHH");
-		return "";
-	}
+	console.log(image.nsfw);
 	return image.url;
 }
 
