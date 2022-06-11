@@ -1,7 +1,12 @@
 const { getImage } = require('random-reddit');
 
+let options = {
+	imageOnly: true,
+	allowNSFW: false
+ };
+
 async function redditImage(messageText) {
-	const image = await getImage(messageText);
+	const image = await getImage(messageText, options);
 	if(image.over_18) {
 		return "This image is NSFW.";
 	}
