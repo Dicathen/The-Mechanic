@@ -6,6 +6,6 @@ module.exports = {
 
 	execute(message, args) {
 		const image = getImage('cats');
-		message.channel.send({ files: [image] });
+		message.channel.send("GATO", { files: [image] });
 	},
 };
