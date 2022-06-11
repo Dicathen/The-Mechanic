@@ -15,10 +15,7 @@ module.exports = {
 	description: "Sends a random image from a specified subreddit",
 
 	execute(message, args) {
-		var messageText = "";
-		for(var i = 1; i < args.length; i++) {
-			messageText += args[i] + " ";
-		}
+		var messageText = args[1];
 		console.log(messageText);
 		sendImage(message, messageText);
 	},
