@@ -1,15 +1,13 @@
 const { getImage } = require('random-reddit');
 
 async function redditImage(messageText) {
-	if(getImage(messageText) === undefined) {
+	if(getImage(messageText) == undefined) {
 		console.log("No image");
 		return "No image found";
 	}
-	else {
-		const image = await getImage(messageText);
-		console.log(image);
-		return image;
-	}
+	const image = await getImage(messageText);
+	console.log(image);
+	return image;
 }
 
 async function sendImage(message, messageText) {
