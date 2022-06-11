@@ -1,7 +1,7 @@
 const { getPost } = require('random-reddit');
 
 async function redditPost(message, messageText) {
-	const nsfw = false;
+	var nsfw = false;
 	if(message.channel.nsfw == true){
 		nsfw = true;
 	}
