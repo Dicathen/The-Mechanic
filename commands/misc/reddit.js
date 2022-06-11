@@ -5,9 +5,11 @@ async function redditImage(messageText) {
 		console.log("No image");
 		return "No image found";
 	}
-	const image = await getImage(messageText);
-	console.log(image);
-	return image;
+	else {
+		const image = await getImage(messageText);
+		console.log(image);
+		return image;
+	}
 }
 
 async function sendImage(message, messageText) {
