@@ -19,6 +19,7 @@ module.exports = {
 		for(var i = 1; i < args.length; i++) {
 			messageText += args[i] + " ";
 		}
+		console.log(messageText);
 		sendImage(message, messageText);
 	},
 };
