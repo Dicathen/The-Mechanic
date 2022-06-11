@@ -1,12 +1,12 @@
-const { getImage } = require('random-reddit');
+const { getPost } = require('random-reddit');
 
 let options = {
 	imageOnly: true,
 	allowNSFW: false
  };
 
-async function redditImage(messageText) {
-	const image = await getImage(messageText, options);
+async function redditPost(messageText) {
+	const image = await getPost(messageText, options);
 	if(image.over_18) {
 		return "This image is NSFW.";
 	}
@@ -14,7 +14,7 @@ async function redditImage(messageText) {
 }
 
 async function sendImage(message, messageText) {
-	const image = await redditImage(messageText);
+	const image = await redditPost(messageText);
 	if(image.length > 0) {
 		return message.channel.send(image);
 	}
