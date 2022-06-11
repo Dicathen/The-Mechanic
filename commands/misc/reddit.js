@@ -2,10 +2,6 @@ const { getImage } = require('random-reddit');
 
 async function redditImage(messageText) {
 	const image = await getImage(messageText);
-	console.log(image);
-	if(image === undefined) {
-		return "No image found";
-	}
 	return image;
 }
 
@@ -14,7 +10,7 @@ async function sendImage(message, messageText) {
 	if(image.length > 0) {
 		return message.channel.send(image);
 	}
-	return message.channel.send("THERE WAS AN ERROR.");
+	return message.channel.send("This subreddit does not exist.");
 }
 
 module.exports = {
