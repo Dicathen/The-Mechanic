@@ -5,6 +5,7 @@ async function redditPost(message, messageText) {
 	if(message.channel.nsfw == true){
 		nsfw = true;
 	}
+	console.log(nsfw);
 	let options = {
 		imageOnly: true,
 		allowNSFW: nsfw
