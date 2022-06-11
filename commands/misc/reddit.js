@@ -19,6 +19,6 @@ module.exports = {
 		for(var i = 0; i < args.length; i++) {
 			messageText += args[i] + " ";
 		}
-		sendImage(message);
+		sendImage(message, messageText);
 	},
 };
