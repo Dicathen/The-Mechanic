@@ -21,7 +21,7 @@ async function sendImage(message, messageText) {
 	if(image.length > 0) {
 		return message.channel.send(image);
 	}
-	return message.channel.send("This subreddit does not exist.");
+	return message.channel.send("This subreddit does not exist or is NSFW.");
 }
 
 module.exports = {
