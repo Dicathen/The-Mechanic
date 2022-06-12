@@ -10,8 +10,6 @@ async function redditPost(message, messageText) {
 		allowNSFW: nsfw
 	};
 	const image = await getPost(messageText, options);
-	console.log(image);
-	console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 	if(image == undefined) {
 		return "";
 	}
@@ -25,10 +23,14 @@ async function redditPost(message, messageText) {
 
 async function sendImage(message, messageText) {
 	const image = await redditPost(message, messageText);
-	if(image.length > 0) {
+	console.log(image);
+	console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+	if(image == "") {
 		return message.channel.send(image);
 	}
-	return message.channel.send("This subreddit does not exist or is NSFW.");
+	else {
+		return message.channel.send("This subreddit does not exist or is NSFW.");
+	}
 }
 
 module.exports = {
