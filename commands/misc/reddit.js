@@ -13,7 +13,7 @@ async function redditPost(message, messageText) {
 	if(image.over_18 && message.channel.nsfw == false) {
 		return "";
 	}
-	else if(image.url == undefined) {
+	else if(image == undefined) {
 		return "";
 	}
 	else {
