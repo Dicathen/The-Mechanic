@@ -35,6 +35,7 @@ async function sendImage(message, messageText) {
 
 module.exports = {
 	name: "reddit",
+	aliases: ["r"],
 	description: "Sends a random image from a specified subreddit",
 
 	execute(message, args) {
