@@ -10,9 +10,6 @@ async function redditPost(message, messageText) {
 		allowNSFW: nsfw
 	};
 	const image = await getPost(messageText, options).catch(err => { return ""; });
-	if(image == undefined) {
-		return "";
-	}
 	if(image.over_18 && message.channel.nsfw == false) {
 		return "";
 	}
