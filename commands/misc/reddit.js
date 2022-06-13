@@ -1,4 +1,4 @@
-const { getPost, getImage } = require('random-reddit');
+const { getPost } = require('random-reddit');
 
 async function redditPost(message, messageText) {
 	var nsfw = false;
@@ -9,7 +9,7 @@ async function redditPost(message, messageText) {
 		imageOnly: true,
 		allowNSFW: nsfw
 	};
-	const image = getImage(messageText, options).catch(err => { return ""; });
+	const image = getPost(messageText, options).catch(err => { return ""; });
 	//const image = await getPost(messageText, options);
 	if(image == undefined) {
 		return "";
@@ -18,7 +18,7 @@ async function redditPost(message, messageText) {
 		return "";
 	}
 	else {
-		return image;
+		return image.url;
 	}
 }
 
