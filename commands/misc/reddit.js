@@ -25,10 +25,10 @@ async function redditPost(message, messageText) {
 async function sendImage(message, messageText) {
 	const image = await redditPost(message, messageText);
 	if(image == "") {
-		return message.channel.send(image);
+		return message.channel.send("This subreddit does not exist or is NSFW.");
 	}
 	else {
-		return message.channel.send("This subreddit does not exist or is NSFW.");
+		return message.channel.send(image);
 	}
 }
 
