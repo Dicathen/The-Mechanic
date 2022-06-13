@@ -9,12 +9,17 @@ async function redditPost(message, messageText) {
 		imageOnly: true,
 		allowNSFW: nsfw
 	};
-	const image = await getPost(messageText, options).catch(err => { return ""; });
-	if(image.over_18 && message.channel.nsfw == false) {
-		return "";
+	try {
+		const post = await getPost(messageText, options);
+		if(image.over_18 && message.channel.nsfw == false) {
+			return "";
+		}
+		else {
+			return image.url;
+		}
 	}
-	else {
-		return image.url;
+	catch(err) {
+		return "";
 	}
 }
 
