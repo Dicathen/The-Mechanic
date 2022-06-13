@@ -9,8 +9,7 @@ async function redditPost(message, messageText) {
 		imageOnly: true,
 		allowNSFW: nsfw
 	};
-	const image = getPost(messageText, options).catch(err => { return ""; });
-	//const image = await getPost(messageText, options);
+	const image = await getPost(messageText, options).catch(err => { return ""; });
 	if(image == undefined) {
 		return "";
 	}
