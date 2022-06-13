@@ -1,4 +1,4 @@
-const { getPost } = require('random-reddit');
+const { getPost, getImage } = require('random-reddit');
 
 async function redditPost(message, messageText) {
 	var nsfw = false;
@@ -9,23 +9,18 @@ async function redditPost(message, messageText) {
 		imageOnly: true,
 		allowNSFW: nsfw
 	};
-	const image = await getPost(messageText, options);
-	//TODO: Probably change to getImage.
-	if(image == undefined) {
-		return "";
-	}
-	else if(image.over_18 && message.channel.nsfw == false) {
+	const image = getImage(messageText, options);
+	//const image = await getPost(messageText, options);
+	if(image.over_18 && message.channel.nsfw == false) {
 		return "";
 	}
 	else {
-		return image.url;
+		return image;
 	}
 }
 
 async function sendImage(message, messageText) {
 	const image = await redditPost(message, messageText);
-	console.log(image);
-	console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 	if(image == "") {
 		return message.channel.send(image);
 	}
