@@ -15,6 +15,8 @@ async function redditPost(message, messageText) {
 			return "";
 		}
 		else {
+            console.log("--------------------------------------------")
+            console.log(image)
 			return image;
 		}
 	}
@@ -43,8 +45,6 @@ async function sendImage(message, messageText) {
         {
             return message.channel.send(messageText + " \n" + image.url);
         }
-        
-		return message.channel.send("Failed.");
 	}
 }
 
