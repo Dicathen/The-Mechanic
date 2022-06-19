@@ -287,6 +287,4 @@ const commandJsonData = [
 	} catch (error) {
 		console.error(error);
 	}
-
-    await client.login(token);
 })();
