@@ -37,7 +37,18 @@ async function sendImage(message, messageText) {
             message.delete();
         }
 
-        return message.channel.send(`https://reddit.com${image.permalink}`);
+        if(image.is_video == true)
+        {
+            return message.channel.send(`https://reddit.com${image.permalink}`);
+        }
+        else if(image.url.contains("imgur"))
+        {
+            return message.channel.send(messageText + " \n" + image.url);
+        }
+        else
+        {
+            return message.channel.send(`https://reddit.com${image.permalink}`);
+        }
 	}
 }
 
