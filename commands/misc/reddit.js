@@ -27,9 +27,6 @@ async function redditPost(message, messageText) {
 }
 
 async function sendImage(message, messageText) {
-	if(message.channel.nsfw == true) {
-        message.delete();
-    }
 	const image = await redditPost(message, messageText);
 	if(image.url === undefined || image === undefined) {
 		return message.channel.send("This subreddit does not exist or is NSFW or something went terribly wrong.");
@@ -74,5 +71,9 @@ module.exports = {
 			var messageText = String(args[0]);
 		}
 		sendImage(message, messageText);
+		if(message.channel.nsfw == true)
+        {
+            message.delete();
+        }
 	},
 };
