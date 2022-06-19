@@ -1,5 +1,4 @@
 const { getPost } = require('random-reddit');
-var request = require('request')
 
 async function redditPost(message, messageText) {
 	var nsfw = false;
@@ -16,20 +15,7 @@ async function redditPost(message, messageText) {
 			return "";
 		}
 		else {
-            request(
-                {
-                  uri: image.url,
-                  followRedirect: false,
-                },
-                function(err, httpResponse) {
-                  if (err) {
-                    return console.error(err)
-                  }
-                  console.log(httpResponse.headers.location || image.url)
-                }
-            )
-
-			return image.url;
+			return image;
 		}
 	}
 	catch(err) {
@@ -40,7 +26,7 @@ async function redditPost(message, messageText) {
 
 async function sendImage(message, messageText) {
 	const image = await redditPost(message, messageText);
-	if(image == "") {
+	if(image.url == "") {
 		return message.channel.send("This subreddit does not exist or is NSFW.");
 	}
 	else {
@@ -48,8 +34,17 @@ async function sendImage(message, messageText) {
         {
             message.delete();
         }
+
+        if(image.is_video == true)
+        {
+            return message.channel.send(`https://reddit.com${image.permalink}`);
+        }
+        else
+        {
+            return message.channel.send(messageText + " \n" + image.url);
+        }
         
-		return message.channel.send(messageText + " \n" + image);
+		return message.channel.send("Failed.");
 	}
 }
 
