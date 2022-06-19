@@ -1,5 +1,5 @@
 const { getPost } = require('random-reddit');
-
+const { MessageEmbed } = require('discord.js');
 async function redditPost(message, messageText) {
 	var nsfw = false;
 	if(message.channel.nsfw == true){
@@ -29,7 +29,13 @@ async function sendImage(message, messageText) {
 		return message.channel.send("This subreddit does not exist or is NSFW.");
 	}
 	else {
-		return message.channel.send(image);
+        const redditEmbed = new MessageEmbed()
+            .setColor('#0099ff')
+            .setTitle(messageText)
+            .setURL('https://discord.js.org/')
+            .setImage(image)
+
+		return message.channel.send({ embeds: [redditEmbed] });
 	}
 }
 
