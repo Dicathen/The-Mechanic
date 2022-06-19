@@ -41,7 +41,7 @@ async function sendImage(message, messageText) {
         {
             return message.channel.send(`https://reddit.com${image.permalink}`);
         }
-        else if(image.url.includes("imgur"))
+        else if(image.url.includes("imgur") || image.url.includes("redd"))
         {
             return message.channel.send(messageText + " \n" + image.url);
         }
