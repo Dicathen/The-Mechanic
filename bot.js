@@ -125,6 +125,7 @@ for (const module of slashCommands) {
 	for (const commandFile of commandFiles) {
 		const command = require(`./interactions/slash/${module}/${commandFile}`);
 		client.slashCommands.set(command.data.name, command);
+        console.log(`Loaded slash command: ${command.data.name}`);
 	}
 }
 
@@ -148,6 +149,7 @@ for (const folder of contextMenus) {
 		const menu = require(`./interactions/context-menus/${folder}/${file}`);
 		const keyName = `${folder.toUpperCase()} ${menu.data.name}`;
 		client.contextCommands.set(keyName, menu);
+        console.log(`Loaded context command ${keyName}`)
 	}
 }
 
@@ -171,6 +173,7 @@ for (const module of buttonCommands) {
 	for (const commandFile of commandFiles) {
 		const command = require(`./interactions/buttons/${module}/${commandFile}`);
 		client.buttonCommands.set(command.id, command);
+        console.log(`Loaded button command: ${command.id}`);
 	}
 }
 
@@ -194,6 +197,7 @@ for (const module of modalCommands) {
 	for (const commandFile of commandFiles) {
 		const command = require(`./interactions/modals/${module}/${commandFile}`);
 		client.modalCommands.set(command.id, command);
+        console.log(`Loaded modalcommand: ${command.id}`)
 	}
 }
 
@@ -216,6 +220,7 @@ for (const module of selectMenus) {
 	for (const commandFile of commandFiles) {
 		const command = require(`./interactions/select-menus/${module}/${commandFile}`);
 		client.selectCommands.set(command.id, command);
+        console.log(`Loaded select command: ${command.id}`);
 	}
 }
 
@@ -233,7 +238,7 @@ const commandJsonData = [
 	try {
 		console.log("Started refreshing application (/) commands.");
 
-		//await rest.put(
+		await rest.put(
 			/**
 			 * By default, you will be using guild commands during development.
 			 * Once you are done and ready to use global commands (which have 1 hour cache time),
@@ -241,7 +246,7 @@ const commandJsonData = [
 			 * 2. Please comment the below (uncommented) line (for guild commands).
 			 */
 
-		//	Routes.applicationGuildCommands(client_id, test_guild_id),
+			Routes.applicationGuildCommands(client_id, test_guild_id),
 
 			/**
 			 * Good advice for global commands, you need to execute them only once to update
@@ -251,8 +256,8 @@ const commandJsonData = [
 
 			// Routes.applicationGuildCommands(client_id)
 
-		//	{ body: commandJsonData }
-		//);
+			{ body: commandJsonData }
+		);
 
 		console.log("Successfully reloaded application (/) commands.");
 	} catch (error) {
@@ -279,6 +284,7 @@ for (const folder of triggerFolders) {
 	for (const file of triggerFiles) {
 		const trigger = require(`./triggers/${folder}/${file}`);
 		client.triggers.set(trigger.name, trigger);
+        console.log(`Loaded trigger ${trigger.name}`);
 	}
 }
 
