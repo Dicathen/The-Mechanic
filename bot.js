@@ -233,7 +233,7 @@ const commandJsonData = [
 	try {
 		console.log("Started refreshing application (/) commands.");
 
-		await rest.put(
+		//await rest.put(
 			/**
 			 * By default, you will be using guild commands during development.
 			 * Once you are done and ready to use global commands (which have 1 hour cache time),
@@ -241,7 +241,7 @@ const commandJsonData = [
 			 * 2. Please comment the below (uncommented) line (for guild commands).
 			 */
 
-			//Routes.applicationGuildCommands(client_id, test_guild_id),
+		//	Routes.applicationGuildCommands(client_id, test_guild_id),
 
 			/**
 			 * Good advice for global commands, you need to execute them only once to update
@@ -249,10 +249,10 @@ const commandJsonData = [
 			 * to ensure they don't get re-deployed on the next restart.
 			 */
 
-			Routes.applicationGuildCommands(client_id),
+			// Routes.applicationGuildCommands(client_id)
 
-			{ body: commandJsonData }
-		);
+		//	{ body: commandJsonData }
+		//);
 
 		console.log("Successfully reloaded application (/) commands.");
 	} catch (error) {
