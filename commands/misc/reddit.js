@@ -45,7 +45,7 @@ async function sendImage(message, messageText) {
         {
             let messageContent = "";
             image.gallery_data.items.forEach(item => {
-                messageContent = messageContent + `https://i.redd.it/${item.media_id}.jpg`;
+                messageContent = messageContent + `https://i.redd.it/${item.media_id}.jpg \n`;
             });
             return message.channel.send(messageContent);
         }
