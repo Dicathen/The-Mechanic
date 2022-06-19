@@ -52,7 +52,7 @@ async function sendImage(message, messageText) {
         }
         else
         {
-            return message.channel.send(`https://reddit.com${image.permalink}`);
+            return message.channel.send(messageText + " \n" + image.url);
         }
 	}
 }
