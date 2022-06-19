@@ -33,13 +33,8 @@ async function sendImage(message, messageText) {
         {
             message.delete();
         }
-        const redditEmbed = new MessageEmbed()
-            .setColor('#0099ff')
-            .setTitle(messageText)
-            .setURL(image)
-            .setDescription(image);
-
-		return message.channel.send({ embeds: [redditEmbed] });
+        
+		return message.channel.send(messageText + " \n" + image);
 	}
 }
 
