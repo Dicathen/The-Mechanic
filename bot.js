@@ -225,6 +225,30 @@ for (const module of selectMenus) {
 }
 
 /**********************************************************************/
+// Registration of Message Based Chat Triggers
+
+/**
+ * @type {String[]}
+ * @description All trigger categories aka folders.
+ */
+
+ const triggerFolders = fs.readdirSync("./triggers");
+
+ // Loop through all files and store triggers in triggers collection.
+ 
+ for (const folder of triggerFolders) {
+     const triggerFiles = fs
+         .readdirSync(`./triggers/${folder}`)
+         .filter((file) => file.endsWith(".js"));
+     for (const file of triggerFiles) {
+         const trigger = require(`./triggers/${folder}/${file}`);
+         client.triggers.set(trigger.name, trigger);
+         console.log(`Loaded trigger ${trigger.name}`);
+     }
+ }
+ 
+
+/**********************************************************************/
 // Registration of Slash-Commands in Discord API
 
 const rest = new REST({ version: "9" }).setToken(token);
@@ -263,32 +287,6 @@ const commandJsonData = [
 	} catch (error) {
 		console.error(error);
 	}
+
+    await client.login(token);
 })();
-
-/**********************************************************************/
-// Registration of Message Based Chat Triggers
-
-/**
- * @type {String[]}
- * @description All trigger categories aka folders.
- */
-
-const triggerFolders = fs.readdirSync("./triggers");
-
-// Loop through all files and store triggers in triggers collection.
-
-for (const folder of triggerFolders) {
-	const triggerFiles = fs
-		.readdirSync(`./triggers/${folder}`)
-		.filter((file) => file.endsWith(".js"));
-	for (const file of triggerFiles) {
-		const trigger = require(`./triggers/${folder}/${file}`);
-		client.triggers.set(trigger.name, trigger);
-        console.log(`Loaded trigger ${trigger.name}`);
-	}
-}
-
-// Login into your client application with bot's token. woah
-
-
-client.login(token).catch((err) => {console.error(err)});
