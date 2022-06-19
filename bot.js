@@ -101,7 +101,7 @@ for (const folder of commandFolders) {
         console.log(`Loaded ${command.name}`)
 
         // If the command has a timerhandler, run that now.
-        if(typeof command.timerHandler === "function") command.timerHandler(client);
+        //if(typeof command.timerHandler === "function") command.timerHandler(client);
 	}
 }
 
