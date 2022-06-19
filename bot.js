@@ -101,7 +101,7 @@ for (const folder of commandFolders) {
         console.log(`Loaded ${command.name}`)
 
         // If the command has a timerhandler, run that now.
-        //if(typeof command.timerHandler === "function") command.timerHandler(client);
+        if(typeof command.timerHandler === "function") command.timerHandler(client);
 	}
 }
 
@@ -229,16 +229,27 @@ const commandJsonData = [
 	...Array.from(client.contextCommands.values()).map((c) => c.data),
 ];
 
-/*(async () => {
+(async () => {
 	try {
 		console.log("Started refreshing application (/) commands.");
 
 		await rest.put(
+			/**
+			 * By default, you will be using guild commands during development.
+			 * Once you are done and ready to use global commands (which have 1 hour cache time),
+			 * 1. Please uncomment the below (commented) line to deploy global commands.
+			 * 2. Please comment the below (uncommented) line (for guild commands).
+			 */
 
-			Routes.applicationGuildCommands(client_id, test_guild_id),
+			//Routes.applicationGuildCommands(client_id, test_guild_id),
 
+			/**
+			 * Good advice for global commands, you need to execute them only once to update
+			 * your commands to the Discord API. Please comment it again after running the bot once
+			 * to ensure they don't get re-deployed on the next restart.
+			 */
 
-			// Routes.applicationGuildCommands(client_id)
+			Routes.applicationGuildCommands(client_id),
 
 			{ body: commandJsonData }
 		);
@@ -247,7 +258,7 @@ const commandJsonData = [
 	} catch (error) {
 		console.error(error);
 	}
-})();*/
+})();
 
 /**********************************************************************/
 // Registration of Message Based Chat Triggers
