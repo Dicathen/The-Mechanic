@@ -15,8 +15,8 @@ async function redditPost(message, messageText) {
 			return "";
 		}
 		else {
-            console.log("--------------------------------------------")
-            console.log(image)
+            //console.log("--------------------------------------------")
+            //console.log(image)
 			return image;
 		}
 	}
