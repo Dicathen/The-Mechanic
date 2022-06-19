@@ -1,5 +1,6 @@
 const { getPost } = require('random-reddit');
-const { MessageEmbed } = require('discord.js');
+var request = require('request')
+
 async function redditPost(message, messageText) {
 	var nsfw = false;
 	if(message.channel.nsfw == true){
@@ -15,12 +16,26 @@ async function redditPost(message, messageText) {
 			return "";
 		}
 		else {
+            request(
+                {
+                  uri: image,
+                  followRedirect: false,
+                },
+                function(err, httpResponse) {
+                  if (err) {
+                    return console.error(err)
+                  }
+                  console.log(httpResponse.headers.location || image)
+                }
+            )
+
 			return image.url;
 		}
 	}
 	catch(err) {
 		return "";
 	}
+    
 }
 
 async function sendImage(message, messageText) {
