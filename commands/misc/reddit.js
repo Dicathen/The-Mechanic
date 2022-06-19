@@ -27,17 +27,14 @@ async function redditPost(message, messageText) {
 }
 
 async function sendImage(message, messageText) {
+	if(message.channel.nsfw == true) {
+        message.delete();
+    }
 	const image = await redditPost(message, messageText);
-	const theMessage = message;
 	if(image.url === undefined || image === undefined) {
 		return message.channel.send("This subreddit does not exist or is NSFW or something went terribly wrong.");
 	}
 	else {
-        if(message.channel.nsfw == true)
-        {
-            theMessage.delete();
-        }
-
         if(image.is_video == true)
         {
             return message.channel.send(`https://reddit.com${image.permalink}`);
