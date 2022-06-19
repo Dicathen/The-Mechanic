@@ -284,4 +284,4 @@ for (const folder of triggerFolders) {
 // Login into your client application with bot's token. woah
 
 
-client.login(token);
+client.login(token).catch((err) => {console.error(err)});
