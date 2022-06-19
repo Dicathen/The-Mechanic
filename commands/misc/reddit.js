@@ -15,8 +15,8 @@ async function redditPost(message, messageText) {
 			return "";
 		}
 		else {
-            console.log("--------------------------------------------")
-            console.log(image)
+            //console.log("--------------------------------------------")
+            //console.log(image)
 			return image;
 		}
 	}
@@ -40,6 +40,11 @@ async function sendImage(message, messageText) {
         if(image.is_video == true)
         {
             return message.channel.send(`https://reddit.com${image.permalink}`);
+        }
+        else if(image.is_gallery == true)
+        {
+            console.log(image.gallery_data.items[0]);
+            return message.channel.send(image.gallery_data.items[0].url);
         }
         else if(image.url.includes("imgur") || image.url.includes("redd"))
         {
