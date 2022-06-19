@@ -32,7 +32,7 @@ async function sendImage(message, messageText) {
         const redditEmbed = new MessageEmbed()
             .setColor('#0099ff')
             .setTitle(messageText)
-            .setURL('https://discord.js.org/')
+            .setURL(image)
             .setImage(image)
 
 		return message.channel.send({ embeds: [redditEmbed] });
