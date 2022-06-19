@@ -29,6 +29,10 @@ async function sendImage(message, messageText) {
 		return message.channel.send("This subreddit does not exist or is NSFW.");
 	}
 	else {
+        if(message.channel.nsfw == true)
+        {
+            message.delete();
+        }
         const redditEmbed = new MessageEmbed()
             .setColor('#0099ff')
             .setTitle(messageText)
