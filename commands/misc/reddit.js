@@ -28,13 +28,14 @@ async function redditPost(message, messageText) {
 
 async function sendImage(message, messageText) {
 	const image = await redditPost(message, messageText);
+	const theMessage = message;
 	if(image.url === undefined || image === undefined) {
 		return message.channel.send("This subreddit does not exist or is NSFW or something went terribly wrong.");
 	}
 	else {
         if(message.channel.nsfw == true)
         {
-            message.delete();
+            theMessage.delete();
         }
 
         if(image.is_video == true)
