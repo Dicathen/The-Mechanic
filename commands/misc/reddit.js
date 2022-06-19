@@ -37,7 +37,7 @@ async function sendImage(message, messageText) {
             .setColor('#0099ff')
             .setTitle(messageText)
             .setURL(image)
-            .setImage(image)
+            .attachFiles([image]);
 
 		return message.channel.send({ embeds: [redditEmbed] });
 	}
