@@ -37,14 +37,7 @@ async function sendImage(message, messageText) {
             message.delete();
         }
 
-        if(image.is_video == true)
-        {
-            return message.channel.send(`https://reddit.com${image.permalink}`);
-        }
-        else
-        {
-            return message.channel.send(messageText + " \n" + image.url);
-        }
+        return message.channel.send(`https://reddit.com${image.permalink}`);
 	}
 }
 
