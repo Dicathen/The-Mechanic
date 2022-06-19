@@ -43,8 +43,11 @@ async function sendImage(message, messageText) {
         }
         else if(image.is_gallery == true)
         {
-            console.log(image.gallery_data.items[0]);
-            return message.channel.send(image.gallery_data.items[0].url);
+            let messageContent = "";
+            image.gallery_data.items.forEach(item => {
+                messageContent = messageContent + `https://i.redd.it/${item.media_id}.jpg`;
+            });
+            return message.channel.send(messageContent);
         }
         else if(image.url.includes("imgur") || image.url.includes("redd"))
         {
