@@ -289,9 +289,8 @@ const commandJsonData = [
 	}
 })();
 
-console.log("Trying to log in.")
 client.login(token).then(() => {
     console.log(
-        ` Successfully logged in as: ${client.user.tag}`
+        `Successfully logged in as: ${client.user.tag}`
     );
-  });
+});
