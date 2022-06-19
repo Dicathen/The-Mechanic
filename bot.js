@@ -281,6 +281,7 @@ for (const folder of triggerFolders) {
 	}
 }
 
-// Login into your client application with bot's token.
+// Login into your client application with bot's token. woah
+
 
 client.login(token);
