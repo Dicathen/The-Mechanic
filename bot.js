@@ -288,3 +288,9 @@ const commandJsonData = [
 		console.error(error);
 	}
 })();
+
+client.login(token).then(() => {
+    console.log(
+        ` Successfully logged in as: ${client.user.tag}`
+    );
+  });
