@@ -45,6 +45,11 @@ async function sendImage(message, messageText) {
         {
             return message.channel.send(messageText + " \n" + image.url);
         }
+        else if(image.url.includes("gfycat"))
+        {
+            sendImage(message, messageText);
+            return;
+        }
         else
         {
             return message.channel.send(`https://reddit.com${image.permalink}`);
