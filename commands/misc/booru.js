@@ -3,7 +3,7 @@ const boo = require('booru')
 async function getBooru(message, site, term) {
 	var image;
 	try{
-		image = boo.search(site, term, { limit: 1 })[0];
+		image = await boo.search(site, term, { limit: 1 })[0];
 	}
 	catch(err){
 		return message.channel.send("*This site does not exist. Use this command with the following:*\n*SFW:** e926, konan, safebooru, tbib\n**NSFW:** e621, hypnohub, danbooru, konac, yandere, gelbooru, rule34, xbooru, paheal, derpibooru, realbooru*");
