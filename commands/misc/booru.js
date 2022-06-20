@@ -7,7 +7,7 @@ async function getBooru(message, site, term) {
 			posts => {
 				image = posts[0].fileUrl;   //post.fileUrl, post.postView
 			  	if((posts[0].booru.site.nsfw == true || posts[0].rating == 'e') && message.channel.nsfw == false){
-					return message.channel.send("*This site is NSFW. Use this command with the following:*\n**SFW:** e926, konan, safebooru, tbib\n**NSFW:** e621, hypnohub, danbooru, konac, yandere, gelbooru, rule34, xbooru, paheal, derpibooru, realbooru");
+					return message.channel.send("*This site is NSFW in a SFW channel. Try this command with the following:*\n**SFW:** e926, konan, safebooru, tbib\n**NSFW:** e621, hypnohub, danbooru, konac, yandere, gelbooru, rule34, xbooru, paheal, derpibooru, realbooru");
 				}
 				else{
 					return message.channel.send(image);
