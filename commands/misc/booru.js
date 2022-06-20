@@ -1,6 +1,6 @@
 const boo = require('booru')
 
-function getBooru(message, site, term) {
+async function getBooru(message, site, term) {
 	var website;
 	try{
 		website = boo.forSite(site)
@@ -11,7 +11,7 @@ function getBooru(message, site, term) {
 	if(website.nsfw == true && message.channel.nsfw == false){
 		return message.channel.send("*This site is NSFW. Use this command with the following:*\n**SFW:** e926, konan, safebooru, tbib\n**NSFW:** e621, hypnohub, danbooru, konac, yandere, gelbooru, rule34, xbooru, paheal, derpibooru, realbooru");
 	}
-	const image = website.search((term), {limit:2});
+	const image = await website.search((term), {limit:2});
 	return message.channel.send(image);
 }
 
