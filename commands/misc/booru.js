@@ -3,13 +3,18 @@ const boo = require('booru')
 async function getBooru(message, site, term) {
 	var image;
 	try{
-		image = boo.search(site, term, { limit: 1 });
+		boo.search('safebooru', ['glaceon'], { limit: 3, random: true }).then(
+			posts => {
+			  //for (let post of posts) console.log(post.fileUrl, post.postView)
+			  image = posts[0];
+			},
+		  )
 	}
 	catch(err){
 		return message.channel.send("*This site does not exist. Use this command with the following:*\n*SFW:** e926, konan, safebooru, tbib\n**NSFW:** e621, hypnohub, danbooru, konac, yandere, gelbooru, rule34, xbooru, paheal, derpibooru, realbooru*");
 	}
 	console.log(image);
-	if(image.nsfw == true && message.channel.nsfw == false){
+	if(image.booru.nsfw == true && message.channel.nsfw == false){
 		return message.channel.send("*This site is NSFW. Use this command with the following:*\n**SFW:** e926, konan, safebooru, tbib\n**NSFW:** e621, hypnohub, danbooru, konac, yandere, gelbooru, rule34, xbooru, paheal, derpibooru, realbooru");
 	}
 	//const image = await website.search((term), {limit:2});
