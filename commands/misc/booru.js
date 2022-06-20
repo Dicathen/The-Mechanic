@@ -11,9 +11,8 @@ async function getBooru(message, site, term) {
 	if(website.nsfw == true && message.channel.nsfw == false){
 		return message.channel.send("*This site is NSFW. Use this command with the following:*\n**SFW:** e926, konan, safebooru, tbib\n**NSFW:** e621, hypnohub, danbooru, konac, yandere, gelbooru, rule34, xbooru, paheal, derpibooru, realbooru");
 	}
-	const image = await website.search((term), {limit:2});
-	console.log(image);
-	return message.channel.send("image");
+	const image = website.search(term);
+	return message.channel.send(image[0].fileUrl);
 }
 
 module.exports = {
