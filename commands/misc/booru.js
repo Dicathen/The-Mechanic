@@ -1,6 +1,8 @@
 const boo = require('booru')
 
 function getBooru(message, site, term) {
+	//const sb = Booru.forSite('sb')
+	console.log(boo.sites);
 	boo.search(site, [term], { limit: 3, random: true }).then(
 		posts => {
 			message.channel.send(posts[0].fileUrl)
