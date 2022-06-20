@@ -9,7 +9,7 @@ async function getBooru(message, site, term) {
 				image = posts[0].fileUrl;
 				console.log(image);
 				console.log(posts[0]);
-			  	if(posts[0].booru.nsfw == true && message.channel.nsfw == false){
+			  	if(posts[0].booru.site.nsfw == true && message.channel.nsfw == false){
 					return message.channel.send("*This site is NSFW. Use this command with the following:*\n**SFW:** e926, konan, safebooru, tbib\n**NSFW:** e621, hypnohub, danbooru, konac, yandere, gelbooru, rule34, xbooru, paheal, derpibooru, realbooru");
 				}
 				else{
