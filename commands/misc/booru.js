@@ -3,10 +3,10 @@ const boo = require('booru')
 function getBooru(message, site, term) {
 	//const sb = Booru.forSite('sb')
 	if(boo.sites[site] == false) {
-		return message.channel.send("*This site does not exist or is NSFW. Use this command with the following:*\n**SFW:** e926, konan, safebooru, tbib\n**NSFW:** e621, hypnohub, danbooru, konac, yandere, gelbooru, rule34, xbooru, paheal, derpibooru, realbooru");
+		return message.channel.send("*This site does not exist or has another issue. Use this command with the following:*\n**SFW:** e926, konan, safebooru, tbib\n**NSFW:** e621, hypnohub, danbooru, konac, yandere, gelbooru, rule34, xbooru, paheal, derpibooru, realbooru");
 	}
 	if(boo.sites[site].nsfw == true && message.channel.nsfw == false){
-		return message.channel.send("*This site  is NSFW. Use this command with the following:*\n**SFW:** e926, konan, safebooru, tbib\n**NSFW:** e621, hypnohub, danbooru, konac, yandere, gelbooru, rule34, xbooru, paheal, derpibooru, realbooru");
+		return message.channel.send("*This site is NSFW. Use this command with the following:*\n**SFW:** e926, konan, safebooru, tbib\n**NSFW:** e621, hypnohub, danbooru, konac, yandere, gelbooru, rule34, xbooru, paheal, derpibooru, realbooru");
 	}
 	boo.search(site, [term], { limit: 3, random: true }).then(
 		posts => {
