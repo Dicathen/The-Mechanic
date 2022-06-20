@@ -48,7 +48,7 @@ async function sendImage(message, messageText) {
         {
             return message.channel.send(messageText + " \n" + image.url);
         }
-        else if(image.url.includes("gfycat") || image.url.includes("comments"))
+        else if(image.url.includes("gfycat"))
         {
             sendImage(message, messageText);
             return;
