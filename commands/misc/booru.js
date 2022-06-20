@@ -6,8 +6,6 @@ async function getBooru(message, site, term) {
 		boo.search(site, [term], { limit: 1, random: true }).then(
 			posts => {
 				image = posts[0].fileUrl;   //post.fileUrl, post.postView
-				console.log(image);
-				console.log(posts[0]);
 			  	if((posts[0].booru.site.nsfw == true || posts[0].rating == 'e') && message.channel.nsfw == false){
 					return message.channel.send("*This site is NSFW. Use this command with the following:*\n**SFW:** e926, konan, safebooru, tbib\n**NSFW:** e621, hypnohub, danbooru, konac, yandere, gelbooru, rule34, xbooru, paheal, derpibooru, realbooru");
 				}
@@ -35,7 +33,8 @@ module.exports = {
 			term = String(args[1]);
 		}
 		getBooru(message, site, term);
-		if(message.channel.nsfw == true)
+		if(message.channel.nsfw == true){
 			message.delete();
+		}
 	},
 };
