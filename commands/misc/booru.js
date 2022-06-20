@@ -8,7 +8,7 @@ function getBooru(message, site, term) {
 	catch(err){
 		return message.channel.send("*This site does not exist. Use this command with the following:*\n*SFW:** e926, konan, safebooru, tbib\n**NSFW:** e621, hypnohub, danbooru, konac, yandere, gelbooru, rule34, xbooru, paheal, derpibooru, realbooru*");
 	}
-	if(boo.sites[site].nsfw == true && message.channel.nsfw == false){
+	if(website.nsfw == true && message.channel.nsfw == false){
 		return message.channel.send("*This site is NSFW. Use this command with the following:*\n**SFW:** e926, konan, safebooru, tbib\n**NSFW:** e621, hypnohub, danbooru, konac, yandere, gelbooru, rule34, xbooru, paheal, derpibooru, realbooru");
 	}
 	return message.channel.send(website.search(term), {limit:2});
