@@ -5,11 +5,10 @@ async function getBooru(message, site, term) {
 	try{
 		boo.search(site, [term], { limit: 1, random: true }).then(
 			posts => {
-			  	//for (let post of posts) console.log(post.fileUrl, post.postView)
-				image = posts[0].fileUrl;
+				image = posts[0].fileUrl;   //post.fileUrl, post.postView
 				console.log(image);
 				console.log(posts[0]);
-			  	if(posts[0].booru.site.nsfw == true && message.channel.nsfw == false){
+			  	if((posts[0].booru.site.nsfw == true || posts[0].rating == 'e') && message.channel.nsfw == false){
 					return message.channel.send("*This site is NSFW. Use this command with the following:*\n**SFW:** e926, konan, safebooru, tbib\n**NSFW:** e621, hypnohub, danbooru, konac, yandere, gelbooru, rule34, xbooru, paheal, derpibooru, realbooru");
 				}
 				else{
@@ -19,16 +18,14 @@ async function getBooru(message, site, term) {
 		  )
 	}
 	catch(err){
-		return message.channel.send("*This site does not exist. Use this command with the following:*\n*SFW:** e926, konan, safebooru, tbib\n**NSFW:** e621, hypnohub, danbooru, konac, yandere, gelbooru, rule34, xbooru, paheal, derpibooru, realbooru*");
+		return message.channel.send("*This site does not exist or another issue has occurred. Try this command with the following:*\n**SFW:** e926, konan, safebooru, tbib\n**NSFW:** e621, hypnohub, danbooru, konac, yandere, gelbooru, rule34, xbooru, paheal, derpibooru, realbooru*");
 	}
-	//const image = await website.search((term), {limit:2});
-	//return message.channel.send("image");
 }
 
 module.exports = {
 	name: "booru",
 	aliases: ["b"],
-	description: "Sends a random image from a specified booru",
+	description: "Sends a random image from a specified booru with the format: **booru <site> <term>**",
 
 	execute(message, args) {
 		var site = "safebooru";
@@ -38,9 +35,7 @@ module.exports = {
 			term = String(args[1]);
 		}
 		getBooru(message, site, term);
-		//if(message.channel.nsfw == true)
-        //{
-        //    message.delete();
-        //}
+		if(message.channel.nsfw == true)
+			message.delete();
 	},
 };

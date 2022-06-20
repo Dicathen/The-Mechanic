@@ -15,8 +15,6 @@ async function redditPost(message, messageText) {
 			return "";
 		}
 		else {
-            //console.log("--------------------------------------------")
-            //console.log(image)
 			return image;
 		}
 	}
@@ -32,29 +30,24 @@ async function sendImage(message, messageText) {
 		return message.channel.send("*This subreddit does not exist, is NSFW, or something went terribly wrong.*");
 	}
 	else {
-        if(image.is_video == true)
-        {
+        if(image.is_video == true) {
             return message.channel.send(`https://reddit.com${image.permalink}`);
         }
-        else if(image.is_gallery == true)
-        {
+        else if(image.is_gallery == true) {
             let messageContent = "";
             image.gallery_data.items.forEach(item => {
                 messageContent = messageContent + `https://i.redd.it/${item.media_id}.jpg \n`;
             });
             return message.channel.send(messageContent);
         }
-        else if(image.url.includes("imgur") || image.url.includes("redd"))
-        {
+        else if(image.url.includes("imgur") || image.url.includes("redd")) {
             return message.channel.send(messageText + " \n" + image.url);
         }
-        else if(image.url.includes("gfycat"))
-        {
+        else if(image.url.includes("gfycat")) {
             sendImage(message, messageText);
             return;
         }
-        else
-        {
+        else {
             return message.channel.send(messageText + " \n" + image.url);
         }
 	}
@@ -71,8 +64,7 @@ module.exports = {
 			var messageText = String(args[0]);
 		}
 		sendImage(message, messageText);
-		if(message.channel.nsfw == true)
-        {
+		if(message.channel.nsfw == true) {
             message.delete();
         }
 	},
