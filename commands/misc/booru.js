@@ -3,7 +3,8 @@ const boo = require('booru')
 function getBooru(message, site, term) {
 	boo.search(site, [term], { limit: 3, random: true }).then(
 		posts => {
-		  for (let post of posts) console.log(post.fileUrl, post.postView)
+			message.channel.send(posts[0].fileUrl)
+		  	//for (let post of posts) console.log(post.fileUrl, post.postView)
 		},
 	)
 }
