@@ -12,7 +12,7 @@ function getBooru(message, site, term) {
 		return message.channel.send("*This site is NSFW. Use this command with the following:*\n**SFW:** e926, konan, safebooru, tbib\n**NSFW:** e621, hypnohub, danbooru, konac, yandere, gelbooru, rule34, xbooru, paheal, derpibooru, realbooru");
 	}
 	const image = website.search((term), {limit:2});
-	return message.channel.send(image[0].url);
+	return message.channel.send(image);
 }
 
 module.exports = {
