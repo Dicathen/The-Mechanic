@@ -1,26 +1,11 @@
 const boo = require('booru')
 
-function booru(message, messageText) {
-	var nsfw = false;
-	if(message.channel.nsfw == true){
-		nsfw = true;
-	}
-	let options = {
-		imageOnly: true,
-		allowNSFW: nsfw
-	};
-	try {
-		const image = boo.random(messageText, options);
-		if(image.over_18 && message.channel.nsfw == false) {
-			return "";
-		}
-		else {
-			return image;
-		}
-	}
-	catch(err) {
-		return "";
-	}
+function getBooru(message, site, term) {
+	boo.search(site, [term], { limit: 3, random: true }).then(
+		posts => {
+		  for (let post of posts) console.log(post.fileUrl, post.postView)
+		},
+	)
 }
 
 module.exports = {
@@ -29,11 +14,14 @@ module.exports = {
 	description: "Sends a random image from a specified booru",
 
 	execute(message, args) {
-		var messageText = "Use this command with the following\nSFW: e926, konan, safebooru, tbib\nNSFW: e621, hypnohub, danbooru, konac, yandere, gelbooru, rule34, xbooru, paheal, derpibooru, realbooru";
+		//var messageText = "Use this command with the following\nSFW: e926, konan, safebooru, tbib\nNSFW: e621, hypnohub, danbooru, konac, yandere, gelbooru, rule34, xbooru, paheal, derpibooru, realbooru";
+		var site = "safebooru";
+		var term = "glaceon";
 		if(args.length > 0) {
-			var messageText = String(args[0]);
+			site = String(args[0]);
+			term = String(args[1]);
 		}
-		booru(message, messageText);
+		getBooru(message, site, term);
 		if(message.channel.nsfw == true)
         {
             message.delete();
