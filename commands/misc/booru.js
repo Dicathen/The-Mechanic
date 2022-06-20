@@ -2,7 +2,7 @@ const boo = require('booru')
 
 function getBooru(message, site, term) {
 	//const sb = Booru.forSite('sb')
-	if(boo.sites[site] == undefined || boo.sites[site].nsfw == true) {
+	if(boo.sites.includes(site)) {
 		return message.channel.send("This site does not exist or is NSFW. Use this command with the following\nSFW: e926, konan, safebooru, tbib\nNSFW: e621, hypnohub, danbooru, konac, yandere, gelbooru, rule34, xbooru, paheal, derpibooru, realbooru");
 	}
 	boo.search(site, [term], { limit: 3, random: true }).then(
