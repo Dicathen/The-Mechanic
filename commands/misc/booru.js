@@ -3,7 +3,7 @@ const boo = require('booru')
 async function getBooru(message, site, term) {
 	var website;
 	try{
-		website = boo.forSite(site)
+		website = boo.forSite(site);
 	}
 	catch(err){
 		return message.channel.send("*This site does not exist. Use this command with the following:*\n*SFW:** e926, konan, safebooru, tbib\n**NSFW:** e621, hypnohub, danbooru, konac, yandere, gelbooru, rule34, xbooru, paheal, derpibooru, realbooru*");
@@ -28,9 +28,9 @@ module.exports = {
 			term = String(args[1]);
 		}
 		getBooru(message, site, term);
-		if(message.channel.nsfw == true)
-        {
-            message.delete();
-        }
+		//if(message.channel.nsfw == true)
+        //{
+        //    message.delete();
+        //}
 	},
 };
