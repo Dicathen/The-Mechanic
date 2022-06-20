@@ -17,6 +17,7 @@ async function getBooru(message, site, term) {
 		posts => {
 		  //for (let post of posts) console.log(post.fileUrl, post.postView)
 		  image = posts[0];
+		  console.log(posts[0]);
 		},
 	  )
 	console.log(image);
