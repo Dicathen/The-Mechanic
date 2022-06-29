@@ -26,6 +26,7 @@ async function redditPost(message, messageText) {
 
 async function sendImage(message, messageText) {
 	const image = await redditPost(message, messageText);
+    console.log(image);
 	if(image.url === undefined || image === undefined) {
 		return message.channel.send("*This subreddit does not exist, is NSFW, or something went terribly wrong.*");
 	}
@@ -41,14 +42,14 @@ async function sendImage(message, messageText) {
             return message.channel.send(messageContent);
         }
         else if(image.url.includes("imgur") || image.url.includes("redd")) {
-            return message.channel.send(messageText + " \n" + image.url);
+            return message.channel.send(messageText + " \n" + image.title + " \n" + image.url);
         }
         else if(image.url.includes("gfycat")) {
             sendImage(message, messageText);
             return;
         }
         else {
-            return message.channel.send(messageText + " \n" + image.url);
+            return message.channel.send(messageText + " \n" + image.title + " \n" + image.url);
         }
 	}
 }
