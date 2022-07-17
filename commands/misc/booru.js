@@ -35,9 +35,9 @@ module.exports = {
 			site = String(args[0]);
 			term = String(args[1]);
 			if(args[0] != "b" || args[0] != "booru"){
-				console.log(String(message.content.split(" ")[1].substring(1)));
-				site = String(message.content.split(" ")[1].substring(1));
-				term = String(message.content.split(" ")[2]);
+				console.log(String(message.content.split(" ")[0].substring(1)));
+				site = String(message.content.split(" ")[0].substring(1));
+				term = String(message.content.split(" ")[1]);
 			}
 			console.log(site, term);
 		}
