@@ -29,7 +29,6 @@ module.exports = {
 	description: "Sends a random image from a specified booru with the format: **booru <site> <term>**",
 
 	execute(message, args) {
-		console.log(message);
 		var site = "safebooru";
 		var term = "glaceon";
 		if(args.length > 0) {
@@ -39,8 +38,10 @@ module.exports = {
 				site = String(message.content.split(" ")[1].substring(1));
 				term = String(message.content.split(" ")[2]);
 			}
+			console.log(site, term);
 		}
 		getBooru(message, site, term);
+		console.log(site, term);
 		if(message.channel.nsfw == true){
 			message.delete();
 		}
