@@ -10,13 +10,13 @@ async function getBooru(message, site, term) {
 					return message.channel.send("*This site or post is NSFW in an SFW channel. Try this command with the following:*\n**SFW:** e926, konan, safebooru\n**NSFW:** e621, hypnohub, danbooru, konac, yandere, gelbooru, rule34, xbooru, paheal, derpibooru, realbooru, tbib");
 				}
 				else{
-					return message.channel.send(image);
+					return message.channel.send(site + '\n' + term + '\n' + image);
 				}
 			},
 		  )
 	}
 	catch(err){
-		return message.channel.send("*This site does not exist or another issue has occurred. Try this command with the following:*\n**SFW:** e926, konan, safebooru\n**NSFW:** e621, hypnohub, danbooru, konac, yandere, gelbooru, rule34, xbooru, paheal, derpibooru, realbooru, tbib*");
+		return message.channel.send("*This site does not exist or another issue has occurred. Try this command with the following:*\n**SFW:** e926, konan, safebooru\n**NSFW:** e621, hypnohub, danbooru, konac, yandere, gelbooru, rule34, xbooru, paheal, derpibooru, realbooru, tbib");
 	}
 }
 
