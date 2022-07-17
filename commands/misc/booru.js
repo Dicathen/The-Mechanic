@@ -5,6 +5,9 @@ async function getBooru(message, site, term) {
 	try{
 		boo.search(site, [term], { limit: 1, random: true }).then(
 			posts => {
+				if(posts[0] == undefined){
+					return message.channel.send("No results found for " + term + " on " + site + "or another error has occured.");
+				}
 				image = posts[0].fileUrl;   //post.fileUrl, post.postView
 			  	if((posts[0].booru.site.nsfw == true || posts[0].rating == 'e') && message.channel.nsfw == false){
 					return message.channel.send("*This site or post is NSFW in an SFW channel. Try this command with the following:*\n**SFW:** e926, konan, safebooru\n**NSFW:** e621, hypnohub, danbooru, konac, yandere, gelbooru, rule34, xbooru, paheal, derpibooru, realbooru, tbib");
