@@ -25,7 +25,7 @@ async function getBooru(message, site, term) {
 
 module.exports = {
 	name: "booru",
-	aliases: ["b"],
+	aliases: ["b", "e926", "konan", "safebooru", "e621", "hypnohub", "danbooru", "konac", "yandere", "gelbooru", "rule34", "r34", "xbooru", "paheal", "derpibooru", "realbooru", "tbib"],
 	description: "Sends a random image from a specified booru with the format: **booru <site> <term>**",
 
 	execute(message, args) {
@@ -35,9 +35,10 @@ module.exports = {
 		if(args.length > 0) {
 			site = String(args[0]);
 			term = String(args[1]);
-			//if(args[0] != "b" || args[0] != "booru"){
-			//	site = String()
-			//}
+			if(args[0] != "b" || args[0] != "booru"){
+				site = String(message.content.split(" ")[1].substring(1));
+				term = String(message.content.split(" ")[2]);
+			}
 		}
 		getBooru(message, site, term);
 		if(message.channel.nsfw == true){
