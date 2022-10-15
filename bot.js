@@ -321,6 +321,7 @@ const fetchManyMessages = (channel, limit = 200) => {
 
         const nextBatch = () => {
             let remaining = limit - collection.size;
+            console.log("Remaining: " + remaining);
 
             channel.messages.fetch({limit: remaining<100 ? remaining : 100, before: lastKey})
             .then(next => {
