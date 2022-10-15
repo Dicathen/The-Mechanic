@@ -13,6 +13,7 @@ const { Routes } = require("discord-api-types/v9");
 const { token, owner, client_id, test_guild_id } = require("./config.json");
 global.adminIDs = [owner, "178273444041981952"];
 global.roleID = "980346316720857100";
+global.allMessages = [];
 
 /**
  * From v13, specifying the intents is compulsory.
@@ -295,7 +296,39 @@ client.login(token).then(() => {
         `Successfully logged in as: ${client.user.tag}`
     );
 
+    randommessage.lookForMessages();
+
     client.channels.fetch('765285367095623702')
-    .then(channel => randommessage.fetchAllMessages(channel))
+    .then(channel => fetchManyMessages(channel, 350000)
+    .then(msgs => { 
+        global.allMessages = msgs
+        randommessage.doneLookingForMessages();
+    }))
     .catch(console.error);
 });
+
+const fetchManyMessages = (channel, limit = 200) => {
+    return new Promise((resolve, reject) => {
+      channel.fetchMessages({limit: limit < 100 ? limit : 100})
+      .then(collection => {
+        const nextBatch = () => {
+          let remaining = limit - collection.size;
+  
+          channel.fetchMessages({limit: remaining<100 ? remaining : 100, before: collection.lastKey()})
+          .then(next => {
+            let concatenated = collection.concat(next);
+  
+            // resolve when limit is met or when no new msgs were added (reached beginning of channel)
+            if (collection.size >= limit || collection.size == concatenated.size) return resolve(concatenated);
+  
+            collection = concatenated;
+            nextBatch();
+          })
+          .catch(error => reject(error));
+        }
+  
+        nextBatch();
+      })
+      .catch(error => reject(error));
+    });
+  }
