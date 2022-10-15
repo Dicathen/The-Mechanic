@@ -308,6 +308,7 @@ client.login(token).then(() => {
 });
 
 const fetchManyMessages = (channel, limit = 200) => {
+    console.log(`Starting message search with limit: ${limit}`);
     return new Promise((resolve, reject) => {
         channel.messages.fetch({limit: limit < 100 ? limit : 100})
         .then(collection => {
@@ -321,7 +322,7 @@ const fetchManyMessages = (channel, limit = 200) => {
 
         const nextBatch = () => {
             let remaining = limit - collection.size;
-            console.log("Remaining: " + remaining);
+            console.log(`Remaining Messages: ${remaining}`);
 
             channel.messages.fetch({limit: remaining<100 ? remaining : 100, before: lastKey})
             .then(next => {
