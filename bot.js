@@ -309,12 +309,12 @@ client.login(token).then(() => {
 
 const fetchManyMessages = (channel, limit = 200) => {
     return new Promise((resolve, reject) => {
-      channel.fetchMessages({limit: limit < 100 ? limit : 100})
+      channel.messages.fetch({limit: limit < 100 ? limit : 100})
       .then(collection => {
         const nextBatch = () => {
           let remaining = limit - collection.size;
   
-          channel.fetchMessages({limit: remaining<100 ? remaining : 100, before: collection.lastKey()})
+          channel.messages.fetch({limit: remaining<100 ? remaining : 100, before: collection.lastKey()})
           .then(next => {
             let concatenated = collection.concat(next);
   
