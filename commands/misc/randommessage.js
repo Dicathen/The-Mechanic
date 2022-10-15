@@ -16,7 +16,6 @@ module.exports = {
 };
 
 async function fetchAllMessages(m, channel) {
-    const channel = m.guild.channels.cache.get("<my-channel-id>");
     messages = [];
   
     // Create message pointer
