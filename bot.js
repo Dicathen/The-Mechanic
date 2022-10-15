@@ -299,7 +299,7 @@ client.login(token).then(() => {
     randommessage.lookForMessages();
 
     client.channels.fetch('765285367095623702')
-    .then(channel => fetchManyMessages(channel, 350000)
+    .then(channel => fetchManyMessages(channel, 1000)
     .then(msgs => { 
         global.allMessages = msgs
         randommessage.doneLookingForMessages();
@@ -309,26 +309,34 @@ client.login(token).then(() => {
 
 const fetchManyMessages = (channel, limit = 200) => {
     return new Promise((resolve, reject) => {
-      channel.messages.fetch({limit: limit < 100 ? limit : 100})
-      .then(collection => {
+        channel.messages.fetch({limit: limit < 100 ? limit : 100})
+        .then(collection => {
+            let newCol;
+            let lastKey = collection.lastKey();
+            collection.forEach(m => {
+                newCol.push(m.author.username + ": " + m.toString());
+            });
+
+            collection = newCol;
+
         const nextBatch = () => {
-          let remaining = limit - collection.size;
-  
-          channel.messages.fetch({limit: remaining<100 ? remaining : 100, before: collection.lastKey()})
-          .then(next => {
-            let concatenated = collection.concat(next);
-  
-            // resolve when limit is met or when no new msgs were added (reached beginning of channel)
-            if (collection.size >= limit || collection.size == concatenated.size) return resolve(concatenated);
-  
-            collection = concatenated;
-            nextBatch();
-          })
-          .catch(error => reject(error));
+            let remaining = limit - collection.size;
+
+            channel.messages.fetch({limit: remaining<100 ? remaining : 100, before: lastKey})
+            .then(next => {
+                next.forEach(m => {
+                    collection.push(m.author.username + ": " + m.toString());
+                });
+    
+                // resolve when limit is met or when no new msgs were added (reached beginning of channel)
+                if (collection.size >= limit || collection.size == concatenated.size) return resolve(concatenated);
+    
+                lastKey = next.lastKey();
+                nextBatch();
+            })
+            .catch(error => reject(error));
         }
-  
-        nextBatch();
-      })
-      .catch(error => reject(error));
+        })
+        .catch(error => reject(error));
     });
   }
