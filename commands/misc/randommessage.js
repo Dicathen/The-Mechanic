@@ -8,14 +8,14 @@ module.exports = {
 	async execute(message, args) {
 		if(messages.length < 1)
         {
-            await fetchAllMessages(message);
+            await fetchAllMessages(message, message.channel);
         }
         
         message.channel.send(messages[Math.floor(Math.random()*messages.length)].toString());
 	},
 };
 
-async function fetchAllMessages(m) {
+async function fetchAllMessages(m, channel) {
     const channel = m.guild.channels.cache.get("<my-channel-id>");
     messages = [];
   
