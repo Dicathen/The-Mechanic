@@ -30,6 +30,7 @@ const client = new Client({
 //
 const { mysql } = require("./config.json");
 const { createConnection } = require('mysql2');
+const randommessage = require("./commands/misc/randommessage");
 global.con = createConnection(mysql);
 
 // Then we are going to connect to our MySQL database and we will test this on errors
@@ -293,4 +294,6 @@ client.login(token).then(() => {
     console.log(
         `Successfully logged in as: ${client.user.tag}`
     );
+
+    randommessage.fetchAllMessages(client.channels.cache.get("765285367095623702"));
 });
