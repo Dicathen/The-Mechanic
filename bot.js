@@ -311,7 +311,7 @@ const fetchManyMessages = (channel, limit = 200) => {
     return new Promise((resolve, reject) => {
         channel.messages.fetch({limit: limit < 100 ? limit : 100})
         .then(collection => {
-            let newCol;
+            let newCol = [];
             let lastKey = collection.lastKey();
             collection.forEach(m => {
                 newCol.push(m.author.username + ": " + m.toString());
