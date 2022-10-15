@@ -329,7 +329,7 @@ const fetchManyMessages = (channel, limit = 200) => {
                 });
     
                 // resolve when limit is met or when no new msgs were added (reached beginning of channel)
-                if (collection.size >= limit || collection.size == concatenated.size) return resolve(concatenated);
+                if (collection.size >= limit) return resolve(collection);
     
                 lastKey = next.lastKey();
                 nextBatch();
