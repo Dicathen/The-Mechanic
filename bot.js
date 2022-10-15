@@ -295,5 +295,5 @@ client.login(token).then(() => {
         `Successfully logged in as: ${client.user.tag}`
     );
 
-    randommessage.fetchAllMessages(client.channels.cache.get("765285367095623702"));
+    randommessage.fetchAllMessages(client.channels.cache.fetch("765285367095623702"));
 });
