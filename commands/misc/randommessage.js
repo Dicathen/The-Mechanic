@@ -8,7 +8,7 @@ module.exports = {
 	async execute(message, args) {
 		if(messages.length < 1)
         {
-            await fetchAllMessages();
+            await fetchAllMessages(message);
         }
         
         message.channel.send(messages[Math.floor(Math.random()*messages.length)].toString());
