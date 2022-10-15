@@ -6,12 +6,13 @@ module.exports = {
 	description: "Sends a random message from a the discord",
 
 	async execute(message, args) {
+        message.channel.send("Trying to fetch all messages please don't send me another command.");
 		if(messages.length < 1)
         {
             await fetchAllMessages(message.channel);
         }
         
-        message.channel.send(messages[Math.floor(Math.random()*messages.length)].toString());
+        message.channel.send("Message: " + messages[Math.floor(Math.random()*messages.length)].toString());
 	},
 };
 
