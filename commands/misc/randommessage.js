@@ -8,14 +8,14 @@ module.exports = {
 	async execute(message, args) {
 		if(messages.length < 1)
         {
-            await fetchAllMessages(message, message.channel);
+            await fetchAllMessages(message.channel);
         }
         
         message.channel.send(messages[Math.floor(Math.random()*messages.length)].toString());
 	},
 };
 
-async function fetchAllMessages(m, channel) {
+async function fetchAllMessages(channel) {
     messages = [];
   
     // Create message pointer
