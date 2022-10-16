@@ -1,13 +1,13 @@
-
+let DateGenerator = require('random-date-generator'); 
 module.exports = {
 	name: "randommessage",
 	aliases: ["rm", "randmes"],
 	description: "Sends a random message from a the discord",
 
 	async execute(message, args) {
-        //new Date(Random(2020, 2022), Random(1, new Date().getMonth()), Random(1, 29), Random(1, 24), Random(1, 60), Random(1, 60), Random(1, 60))
-        let snow = new Snowflake(new Date(2022, 10, 14));
-        console.log(snow.toString());
+        let startDate = new Date(2020, 10, 15, 13);
+        let endDate = new Date();
+        let snow = new Snowflake(DateGenerator.getRandomDateInRange(startDate, endDate));
 
         let messages = Array.from((await message.channel.messages.fetch({
             limit: 100,
@@ -15,7 +15,7 @@ module.exports = {
         }, false)).values());
 
         let m = messages[Random(0, messages.length)];
-        return message.channel.send(m.author.username + ": \"" + m.content + "\"");
+        return message.channel.send(m.author.username + ": \"" + m.cleanContent + "\"");
 	},
 };
 
