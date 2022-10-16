@@ -1,6 +1,6 @@
 const fs = require('fs');
-require('discord-fetch-messages');
-const fetcher = new Fetcher(client);
+const fetchAll = require('discord-fetch-all');
+ 
 let insearch = false;
 module.exports = {
 	name: "randommessage",
@@ -21,13 +21,21 @@ module.exports = {
         file.on('error', function(err) { /* error handling */ });
 
         insearch = true;
-        await fetcher.fetchChannel(message.channel).then(messages => {
+
+        // First parameter needs to be a discord.js channel object
+        // Second parameter is a optional set of options.
+        await fetchAll.messages(channel, {
+            reverseArray: false, // Reverse the returned array
+            userOnly: true, // Only return messages by users
+            botOnly: false, // Only return messages by bots
+            pinnedOnly: false, // Only returned pinned messages
+        }).then(messages => {
             messages.forEach(function(m) { 
                 file.write(m.id + "\n");
             });
 
             message.channel.send("Done.")
-        })
+        });
 
         file.end();
         
