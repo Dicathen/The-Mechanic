@@ -4,6 +4,7 @@
 	"description": "A modified template based on discordjs.guide to create your own discord-js based bot!",
 	"funding": "https://ko-fi.com/namanvrati",
 	"main": "bot.js",
+	"type":"module",
 	"scripts": {
 		"start": "node bot.js",
 		"dev": "nodemon bot.js"
