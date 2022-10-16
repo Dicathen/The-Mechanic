@@ -1,4 +1,4 @@
-import {Snowflake} from './Snowflake.ts';
+import {Snowflake} from './Snowflake.js';
 let DateGenerator = require('random-date-generator');
 
 module.exports = {
