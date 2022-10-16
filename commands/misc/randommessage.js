@@ -1,4 +1,4 @@
-import {Snowflake} from './Snowflake.js';
+const { Snowflake } = require("@lakuna/trigger");
 let DateGenerator = require('random-date-generator');
 
 module.exports = {
@@ -12,7 +12,7 @@ module.exports = {
         let endDate = new Date(); // should be current date
         console.log(endDate.toDateString())
 
-        message.channel.messages.fetch(new Snowflake().fromDate(DateGenerator.getRandomDateInRange(startDate, endDate)))
+        message.channel.messages.fetch(Snowflake.fromDate(DateGenerator.getRandomDateInRange(startDate, endDate)))
         .then(m => message.channel.send(m.author.username + ": \"" + m.toString() + "\""))
         .catch(console.error);
 	},
