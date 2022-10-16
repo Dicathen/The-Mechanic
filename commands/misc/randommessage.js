@@ -11,7 +11,7 @@ module.exports = {
         file.on('error', function(err) { /* error handling */ });
         await message.channel.messages.fetch({ limit: 10 }).then(messages => {
             messages.forEach(function(m) { 
-                file.write(m.author.username + ": \"" + m.toString() + "\"\n");
+                file.write(m.id + "\n");
             });
         })
 
