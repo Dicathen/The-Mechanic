@@ -15,7 +15,6 @@ module.exports = {
             });
         })
 
-        arr.forEach(function(v) { file.write(v.join(', ') + '\n'); });
         file.end();
         
         //return message.channel.send("Message: " + messages[Math.floor(Math.random()*messages.length)].toString());
