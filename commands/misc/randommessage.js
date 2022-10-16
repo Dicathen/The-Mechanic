@@ -15,7 +15,7 @@ module.exports = {
         }, false)).values());
 
         let m = messages[Random(0, messages.length)];
-        var date = new Date(m.createdTimestamp * 1000);
+        var date = m.createdAt();
         return message.channel.send(date.toLocaleString('en-US') + " | " + m.author.username + ": \" " + m.content + " \"");
 	},
 };
