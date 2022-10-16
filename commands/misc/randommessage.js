@@ -1,22 +1,22 @@
-const DateGenerator = require('random-date-generator');
-const EPOCH = 1420070400000;
+
 module.exports = {
 	name: "randommessage",
 	aliases: ["rm", "randmes"],
 	description: "Sends a random message from a the discord",
 
 	async execute(message, args) {
-
-        let startDate = new Date(2020, 10, 15);
-        let endDate = new Date(); // should be current date
-
-        let snow = new Snowflake(new Date(2020, 10, 16));
+        let snow = new Snowflake(new Date(Random(2020, 2022), Random(1, 12), Random(1, 29), Random(1, 24), Random(1, 60), Random(1, 60), Random(1, 60)));
         console.log(snow.toString());
         message.channel.messages.fetch({before: snow.toString()})
         .then(m => message.channel.send(m.content))
         .catch(console.error);
 	},
 };
+
+function Random(min, max)
+{
+    return Math.floor(Math.random() * max) + min;
+}
 
 class Snowflake {
 	static EPOCH = 1420070400000; // First second of 2015.
