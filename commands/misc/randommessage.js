@@ -18,9 +18,9 @@ module.exports = {
 };
 
 function fromDate(date) {
-    return `0b${BigInt(date.getTime() - EPOCH) // Translate the date by the Discord epoch.
+    return BigInt(`0b${BigInt(date.getTime() - EPOCH) // Translate the date by the Discord epoch.
         .toString(2) // Convert the date to binary.
         .padStart(0x2a, "0") // Pad the start until the timestamp is the correct length.
         .padEnd(0x40, "0") // Pad the end until the snowflake is the correct length.
-    }`;
+    }`);
 }
