@@ -9,9 +9,10 @@ module.exports = {
 
         let startDate = new Date(2020, 10, 15);
         let endDate = new Date(); // should be current date
-        console.log(endDate.toDateString())
-
-        message.channel.messages.fetch(fromDate(DateGenerator.getRandomDateInRange(startDate, endDate)))
+        
+        let snow = fromDate(DateGenerator.getRandomDateInRange(startDate, endDate));
+        console.log(snow);
+        message.channel.messages.fetch(snow)
         .then(m => message.channel.send(m.content))
         .catch(console.error);
 	},
