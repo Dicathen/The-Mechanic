@@ -1,5 +1,4 @@
-const SnowflakeModule = require('./Snowflake.ts');
-const Snowflake = SnowflakeModule.Snowflake;
+import {Snowflake} from './Snowflake.ts';
 let DateGenerator = require('random-date-generator');
 
 module.exports = {
