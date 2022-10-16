@@ -16,7 +16,7 @@ module.exports = {
 
         let m = messages[Random(0, messages.length)];
         var date = new Date(m.createdTimestamp * 1000);
-        return message.channel.send(date.toLocaleString() + " | " + m.author.username + ": \"" + m.cleanContent + "\"");
+        return message.channel.send(date.toLocaleString('en-US') + " | " + m.author.username + ": \" " + m.content + " \"");
 	},
 };
 
