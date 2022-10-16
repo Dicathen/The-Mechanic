@@ -42,7 +42,3 @@ module.exports = {
         //return message.channel.send("Message: " + messages[Math.floor(Math.random()*messages.length)].toString());
 	},
 };
-
-fetcher.on('fetchChannel', async channel => {
-	await message.channel.send(`Fetching <#${channel.id}>.`);
-});
