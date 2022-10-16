@@ -24,7 +24,7 @@ module.exports = {
 
         // First parameter needs to be a discord.js channel object
         // Second parameter is a optional set of options.
-        await fetchAll.messages(channel, {
+        await fetchAll.messages(message.channel, {
             reverseArray: false, // Reverse the returned array
             userOnly: true, // Only return messages by users
             botOnly: false, // Only return messages by bots
