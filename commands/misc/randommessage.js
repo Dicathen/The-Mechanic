@@ -1,4 +1,7 @@
 let DateGenerator = require('random-date-generator'); 
+
+const blacklistID = ['981746689096421406']
+
 module.exports = {
 	name: "randommessage",
 	aliases: ["rm", "randmes"],
@@ -15,8 +18,15 @@ module.exports = {
         }, false)).values());
 
         let m = messages[Random(0, messages.length)];
+
+        while(m.length > 0 && blacklistID.contains(m.author.id))
+        {
+            messages.splice(messages.indexOf(m), 1);
+            m = messages[Random(0, messages.length)];
+        } 
+
         var date = m.createdAt();
-        return message.channel.send(date.toLocaleString('en-US') + " | " + m.author.username + ": \" " + m.content + " \"");
+        return message.channel.send(date.toLocaleString('en-US') + " | " + m.author.username + ": \" " + m.cleanContent + " \"");
 	},
 };
 
