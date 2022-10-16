@@ -1,5 +1,5 @@
 /** A uniquely identifiable descriptor of a thing in Discord. */
-class Snowflake {
+export class Snowflake {
   /** The Discord epoch (the first millisecond of 2015). */
   public static EPOCH = 1420070400000;
 
