@@ -12,7 +12,7 @@ module.exports = {
         console.log(endDate.toDateString())
 
         message.channel.messages.fetch(fromDate(DateGenerator.getRandomDateInRange(startDate, endDate)))
-        .then(m => message.channel.send(m.toString()))
+        .then(m => message.channel.send(m.content))
         .catch(console.error);
 	},
 };
