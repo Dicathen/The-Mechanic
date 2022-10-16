@@ -1,4 +1,4 @@
-const Snowflake = require("@lakuna/trigger");
+import { Snowflake } from "@lakuna/trigger";
 const DateGenerator = require('random-date-generator');
 
 module.exports = {
