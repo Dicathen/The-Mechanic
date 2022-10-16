@@ -5,7 +5,7 @@ module.exports = {
 	description: "Sends a random message from a the discord",
 
 	async execute(message, args) {
-        let snow = new Snowflake(new Date(Random(2020, 2022), Random(1, 12), Random(1, 29), Random(1, 24), Random(1, 60), Random(1, 60), Random(1, 60)));
+        let snow = new Snowflake(new Date(Random(2020, 2022), Random(1, new Date().getMonth()), Random(1, 29), Random(1, 24), Random(1, 60), Random(1, 60), Random(1, 60)));
         console.log(snow.toString());
         message.channel.messages.fetch({before: snow.toString()})
         .then(m => message.channel.send(m.content))
