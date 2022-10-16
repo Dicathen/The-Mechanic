@@ -11,7 +11,7 @@ module.exports = {
         let endDate = new Date(); // should be current date
         console.log(endDate.toDateString())
 
-        message.channel.messages.fetch(fromDate(DateGenerator.getRandomDateInRange(startDate, endDate)))
+        message.channel.messages.fetch(fromDate(DateGenerator.getRandomDateInRange(startDate, endDate)).toString())
         .then(m => message.channel.send(m.author.username + ": \"" + m.toString() + "\""))
         .catch(console.error);
 	},
