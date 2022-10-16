@@ -25,7 +25,7 @@ module.exports = {
             m = messages[Random(0, messages.length)];
         } 
 
-        var date = m.createdAt();
+        var date = m.createdAt;
         return message.channel.send(date.toLocaleString('en-US') + " | " + m.author.username + ": \" " + m.cleanContent + " \"");
 	},
 };
