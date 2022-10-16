@@ -15,7 +15,7 @@ module.exports = {
         }, false)).values());
 
         let m = messages[Random(0, messages.length)];
-        return message.channel.send(m.author.username + ": \"" + m.cleanContent + "\"");
+        return message.channel.send(m.createdTimestamp + " | " + m.author.username + ": \"" + m.cleanContent + "\"");
 	},
 };
 
