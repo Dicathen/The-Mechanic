@@ -14,7 +14,8 @@ module.exports = {
             before: snow.toString()
         }, false)).values());
 
-        return message.channel.send(messages[Random(0, messages.length)].content)
+        let m = messages[Random(0, messages.length)];
+        return message.channel.send(m.author.username + ": \"" + m.content + "\"");
 	},
 };
 
