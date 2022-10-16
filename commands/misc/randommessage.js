@@ -7,8 +7,8 @@ module.exports = {
 	async execute(message, args) {
         message.channel.send("Trying to fetch all messages please don't send me another command.");
 
-        const channelMessages = await message.channel.messages.fetch({ limit: 10 }).then(() => {
-            fs.writeFile('messages.txt', channelMessages, err => {
+        await message.channel.messages.fetch({ limit: 10 }).then(messages => {
+            fs.writeFile('messages.txt', messages, err => {
                 if (err) {
                   console.error(err);
                 }
