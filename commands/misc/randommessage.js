@@ -1,4 +1,5 @@
 const fs = require('fs');
+require('discord-fetch-messages');
 const fetcher = new Fetcher(client);
 let insearch = false;
 module.exports = {
