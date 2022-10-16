@@ -12,7 +12,7 @@ module.exports = {
 
         let snow = new Snowflake(new Date(2020, 10, 16));
         console.log(snow.toString());
-        message.channel.messages.fetch(snow.toString())
+        message.channel.messages.fetch({before: snow.toString()})
         .then(m => message.channel.send(m.content))
         .catch(console.error);
 	},
