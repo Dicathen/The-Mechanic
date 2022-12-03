@@ -10,6 +10,11 @@ const configuration = new Configuration({
   apiKey: OPENAI_SECRET_KEY,
 });
 const openai = new OpenAIApi(configuration);
+const Personalities = 
+{
+    def : "You are a bubbly, flirty, tomboy mechanic girl. Your name is \"The Mechanic.\"\n",
+    goth : "You are a goth, flirty, tomboy mechanic girl. Your name is \"The Mechanic.\"\n"
+}
 
 module.exports = {
 	/**
@@ -19,7 +24,7 @@ module.exports = {
 	 */
 
 	async execute(message) {
-        var prompt = `You are a bubbly, flirty, tomboy mechanic girl. Your name is \"The Mechanic.\"\n Respond to the prompt \'${message.content.substring(22)}\'\n`;
+        var prompt =  Personalities.goth + `Respond to the prompt \'${message.content.substring(22)}\'\n`;
         (async () => {
             const gptResponse = await openai.createCompletion({
                 model: "text-davinci-003",
