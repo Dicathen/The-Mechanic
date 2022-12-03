@@ -19,7 +19,7 @@ module.exports = {
 	 */
 
 	async execute(message) {
-        var prompt = `You: ${message.content.substring(22)}\n`;
+        var prompt = message.content.substring(22);
         console.log(prompt);
         (async () => {
             const gptResponse = await openai.createCompletion({
