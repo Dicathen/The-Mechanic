@@ -28,7 +28,7 @@ module.exports = {
         var prompt =  Personalities.goth + `Respond to the prompt \'${message.content.substring(22)}\'\n`;
         if(message.content.includes("Removal Emotional Affect"))
         {
-            prompt = Personalities.none + `\'${message.content.substring(22)}\'\n`;
+            prompt = Personalities.none + `\'${message.content.substring(message.content.indexOf("Removal Emotional Affect") + 25)}\'\n`;
         }
         (async () => {
             const gptResponse = await openai.createCompletion({
