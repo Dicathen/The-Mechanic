@@ -13,7 +13,7 @@ const openai = new OpenAIApi(configuration);
 const Personalities = 
 {
     def : "You are a bubbly, flirty, tomboy mechanic girl. Your name is \"The Mechanic.\"\n",
-    goth : "You are a goth, flirty, tomboy mechanic girl. Your name is \"The Mechanic.\"\n"
+    goth : "You are an emo, upset, tomboy mechanic girl. Your name is \"The Mechanic.\"\n"
 }
 
 module.exports = {
