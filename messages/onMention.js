@@ -20,7 +20,6 @@ module.exports = {
 
 	async execute(message) {
         var prompt = `${message.content.substring(22)}`;
-        console.log(prompt);
         (async () => {
             const gptResponse = await openai.createCompletion({
                 model: "text-davinci-003",
@@ -28,7 +27,6 @@ module.exports = {
                 temperature: 0.6,
                 max_tokens: 1024,
               });
-            console.log(gptResponse.data);
             message.reply(`${gptResponse.data.choices[0].text}`);
 
         })();
