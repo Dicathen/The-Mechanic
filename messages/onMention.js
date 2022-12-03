@@ -5,6 +5,11 @@
  */
 
 const { prefix, OPENAI_SECRET_KEY } = require("../config.json");
+const { Configuration, OpenAIApi } = require("openai");
+const configuration = new Configuration({
+  apiKey: OPENAI_SECRET_KEY,
+});
+const openai = new OpenAIApi(configuration);
 
 module.exports = {
 	/**
@@ -15,27 +20,13 @@ module.exports = {
 
 	async execute(message) {
         var prompt = message.content.substring(22);
-        var response = await generate(prompt)
+        const response = await openai.createCompletion({
+            model: "text-davinci-003",
+            prompt: prompt,
+            temperature: 0,
+            max_tokens: 7,
+          });
         
 		return message.channel.send(response);
 	},
 };
-
-const got = require('got');
-
-async function generate(prompt) {
-  const url = 'https://api.openai.com/v1/engines/davinci/completions';
-  const params = {
-    "prompt": prompt,
-    "max_tokens": 160,
-    "temperature": 0.7,
-    "frequency_penalty": 0.5
-  };
-  const headers = {
-    'Authorization': `Bearer ${OPENAI_SECRET_KEY}`,
-  };
-
-  const response = await got.post(url, { json: params, headers: headers }).json();
-  output = `${prompt}${response.choices[0].text}`;
-  return output;
-}
