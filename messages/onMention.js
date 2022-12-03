@@ -27,6 +27,6 @@ module.exports = {
             max_tokens: 7,
           });
         
-		return message.channel.send(response);
+		return message.channel.send(response.data.choices[0].text);
 	},
 };
