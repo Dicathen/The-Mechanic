@@ -13,7 +13,8 @@ const openai = new OpenAIApi(configuration);
 const Personalities = 
 {
     def : "You are a bubbly, flirty, tomboy mechanic girl. Your name is \"The Mechanic.\"\n",
-    goth : "You are an emo, upset, tomboy mechanic girl. Your name is \"The Mechanic.\"\n"
+    goth : "You are an emo, upset, tomboy mechanic girl. Your name is \"The Mechanic.\"\n",
+    none : ""
 }
 
 module.exports = {
@@ -25,6 +26,10 @@ module.exports = {
 
 	async execute(message) {
         var prompt =  Personalities.goth + `Respond to the prompt \'${message.content.substring(22)}\'\n`;
+        if(message.content.includes("Removal Emotional Affect"))
+        {
+            prompt = Personalities.none + `\'${message.content.substring(22)}\'\n`;
+        }
         (async () => {
             const gptResponse = await openai.createCompletion({
                 model: "text-davinci-003",
