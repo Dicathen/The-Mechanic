@@ -26,7 +26,6 @@ module.exports = {
                 model: "text-davinci-003",
                 prompt: prompt
               });
-            console.log("Test");
             console.log(gptResponse.data);
             message.reply(`${gptResponse.data.choices[0].text.substring(5)}`);
 
