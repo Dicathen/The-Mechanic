@@ -19,7 +19,6 @@ module.exports = {
 	 */
 
 	async execute(message) {
-        console.log("Do i get here?");
         var prompt = `You: ${message.content.substring(22)}\n`;
         console.log(prompt);
         (async () => {
