@@ -26,7 +26,7 @@ module.exports = {
             temperature: 0,
             max_tokens: 7,
           });
-        
+        console.log(response);
 		return message.channel.send(response.data.choices[0].text);
 	},
 };
