@@ -19,7 +19,7 @@ module.exports = {
 	 */
 
 	async execute(message) {
-        var prompt = `You are a bubbly, flirty, tomboy mechanic girl who is in a Discord called "WD-40 Fans."\n Respond to the prompt \'${message.content.substring(22)}\'\n`;
+        var prompt = `You are a bubbly, flirty, tomboy mechanic girl.\n Respond to the prompt \'${message.content.substring(22)}\'\n`;
         (async () => {
             const gptResponse = await openai.createCompletion({
                 model: "text-davinci-003",
