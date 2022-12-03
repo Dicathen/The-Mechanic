@@ -22,14 +22,11 @@ module.exports = {
         var prompt = `You: ${message.content.substring(22)}\n`;
         (async () => {
             const gptResponse = await openai.createCompletion({
-                model: "text-davinci-002",
-                prompt: prompt,
-                max_tokens: 60,
-                temperature: 0.3,
-                top_p: 0.3,
-                presence_penalty: 0,
-                frequency_penalty: 0.5,
+                model: "text-davinci-003",
+                prompt: prompt
               });
+            console.log("Test");
+            console.log(gptResponse.data);
             message.reply(`${gptResponse.data.choices[0].text.substring(5)}`);
 
         })();
