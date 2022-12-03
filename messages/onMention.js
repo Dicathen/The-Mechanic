@@ -24,7 +24,9 @@ module.exports = {
         (async () => {
             const gptResponse = await openai.createCompletion({
                 model: "text-davinci-003",
-                prompt: prompt
+                prompt: prompt,
+                temperature: 0.6,
+                max_tokens: 1024,
               });
             console.log(gptResponse.data);
             message.reply(`${gptResponse.data.choices[0].text}`);
