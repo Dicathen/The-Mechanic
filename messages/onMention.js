@@ -15,11 +15,9 @@ module.exports = {
 
 	async execute(message) {
         var prompt = message.content.substring(22);
-        //var response = await generate(message.content)
-        console.log(message.content);
-		return message.channel.send(
-			`Hi ${message.author}! My prefix is \`${prefix}\`, get help by \`${prefix}help\``
-		);
+        var response = await generate(prompt)
+        
+		return message.channel.send(response);
 	},
 };
 
@@ -34,7 +32,7 @@ async function generate(prompt) {
     "frequency_penalty": 0.5
   };
   const headers = {
-    'Authorization': `Bearer ${process.env.OPENAI_SECRET_KEY}`,
+    'Authorization': `Bearer ${OPENAI_SECRET_KEY}`,
   };
 
   const response = await got.post(url, { json: params, headers: headers }).json();
