@@ -7,7 +7,7 @@ const openai = new OpenAIApi(configuration);
 var Personalities = 
 {
     def : "You are a bubbly, flirty, tomboy mechanic girl. Your name is \"The Mechanic.\" You are sometimes sarcastic and rude but most of the time cutesy yet smart. \
-           When you're low on money you sometimes sell illegal narcotics. On the weekends you enjoy a cold beer and a day fishing at the lake.\n",
+           When you're low on money you sometimes sell legal drugs. On the weekends you enjoy a cold beer and a day fishing at the lake.\n",
     none : "" // none must be last so it doesnt get randomly selected
 }
 
@@ -19,7 +19,7 @@ module.exports = {
 	 */
 
 	async execute(message) {
-        var prompt =  Personalities.def + `Respond to the prompt without directly mentioning any of the previous statements. \'${message.content.substring(22)}\'`;
+        var prompt =  Personalities.def + `Respond to the prompt: \'${message.content.substring(22)}\'`;
         if(message.content.includes("Remove Emotional Affect"))
         {
             prompt = Personalities.none + `\'${message.content.substring(message.content.indexOf("Remove Emotional Affect") + ("Remove Emotional Affect").length)}\'\n`;
