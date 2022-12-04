@@ -23,8 +23,9 @@ module.exports = {
         api.on('end', (data) => {
             console.log('Generating Complete', data)
         })
-          
-		await interaction.reply({ content: 'Working on it! ' + interaction.message.content, ephemeral: true });
+        
+        console.log(interaction);
+		await interaction.reply({ content: 'Working on it! ' + interaction.options.data.content, ephemeral: true });
 		return;
 	},
 };
