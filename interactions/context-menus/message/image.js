@@ -1,5 +1,5 @@
 const { DREAMSTUDIO_API_KEY } = require("../../../config.json");
-const { generate  } = require('stability-ts')
+const { generateAsync   } = require('stability-ts')
 module.exports = {
 	data: {
 		name: "Generate Image",
@@ -13,7 +13,7 @@ module.exports = {
 	async execute(interaction) {
         var message = await interaction.channel.messages.fetch(interaction.targetId);
         console.log(message.content);
-        const api = generate({
+        /*const api = generate({
             prompt: message.content,
             apiKey: DREAMSTUDIO_API_KEY,
             host: 'https://grpc.stability.ai:443',
@@ -32,7 +32,17 @@ module.exports = {
           
         api.on('end', (data) => {
             console.log('Generating Complete', data)
-        })
+        })*/
+
+        try {
+            const { res, images } = await generateAsync({
+              prompt: message.content,
+              apiKey: DREAMSTUDIO_API_KEY,
+            })
+            console.log(images)
+        } catch (e) {
+            console.log(e);
+        }
         
 		await interaction.reply({ content: 'Working on it!', ephemeral: true });
 		return;
