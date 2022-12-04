@@ -24,7 +24,7 @@ module.exports = {
             console.log('Generating Complete', data)
         })
         
-        console.log(interaction.message);
+        console.log(interaction);
 		await interaction.reply({ content: 'Working on it! ' + interaction.id, ephemeral: true });
 		return;
 	},
