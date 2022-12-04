@@ -1,5 +1,5 @@
 const { DREAMSTUDIO_API_KEY } = require("../../../config.json");
-const { generateAsync  } = require('stability-ts')
+const { generate  } = require('stability-ts')
 module.exports = {
 	data: {
 		name: "Generate Image",
