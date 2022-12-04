@@ -10,7 +10,7 @@ module.exports = {
 
 	async execute(interaction) {
 		await interaction.reply({
-			content: `THIS MESSAGE BLOWS! :muscle: ${interaction.content}`,
+			content: "THIS MESSAGE BLOWS! :muscle:",
 		});
 		return;
 	},
