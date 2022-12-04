@@ -2,7 +2,7 @@ import { generate } from 'stability-ts'
 const { DREAMSTUDIO_API_KEY } = require("../config.json");
 module.exports = {
 	data: {
-		name: "messageBlows",
+		name: "Generate Image",
 		type: 3, // 3 is for message context menus
 	},
 
