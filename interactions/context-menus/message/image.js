@@ -14,7 +14,7 @@ module.exports = {
         var message = await interaction.channel.messages.fetch(interaction.targetId);
         const api = generate({
             prompt: 'A Stunning House',
-            apiKey: "123",
+            apiKey: DREAMSTUDIO_API_KEY,
         })
           
         api.on('image', ({ buffer, filePath }) => {
