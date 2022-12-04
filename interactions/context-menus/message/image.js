@@ -1,5 +1,5 @@
 const { DREAMSTUDIO_API_KEY } = require("../../../config.json");
-const { generate } = require('stability-ts')
+const { generateAsync  } = require('stability-ts')
 module.exports = {
 	data: {
 		name: "Generate Image",
@@ -17,7 +17,7 @@ module.exports = {
             apiKey: DREAMSTUDIO_API_KEY,
             host: 'https://grpc.stability.ai:443',
             engine: 'stable-diffusion-v1',
-            width: d512,
+            width: 512,
             height: 512,
             diffusion:'k_lms',
             steps: 50,
