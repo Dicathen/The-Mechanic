@@ -13,7 +13,7 @@ module.exports = {
 	async execute(interaction) {
         var message = await interaction.channel.messages.fetch(interaction.targetId);
         const api = generate({
-            prompt: 'A Stunning House',
+            prompt: message.content,
             apiKey: DREAMSTUDIO_API_KEY,
         })
           
@@ -25,7 +25,7 @@ module.exports = {
             console.log('Generating Complete', data)
         })
         
-		await interaction.reply({ content: 'Working on it! ' + message.content, ephemeral: true });
+		await interaction.reply({ content: 'Working on it!', ephemeral: true });
 		return;
 	},
 };
