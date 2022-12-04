@@ -15,6 +15,15 @@ module.exports = {
         const api = generate({
             prompt: message.content,
             apiKey: DREAMSTUDIO_API_KEY,
+            host: 'https://grpc.stability.ai:443',
+            engine: 'stable-diffusion-v1',
+            seed: range(0, 4294967295),
+            width: d512,
+            height: 512,
+            diffusion:'k_lms',
+            steps: 50,
+            cfgScale: 7,
+            samples: 1
         })
           
         api.on('image', ({ buffer, filePath }) => {
