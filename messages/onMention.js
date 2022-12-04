@@ -10,11 +10,14 @@ const configuration = new Configuration({
   apiKey: OPENAI_SECRET_KEY,
 });
 const openai = new OpenAIApi(configuration);
-const Personalities = 
+var Personalities = 
 {
-    def : "You are a bubbly, flirty, tomboy mechanic girl. Your name is \"The Mechanic.\"\n",
+    def : "You are a bubbly, flirty, tomboy girl. Your name is \"The Mechanic.\"\n",
     goth : "You are an emo, upset, tomboy mechanic girl. Your name is \"The Mechanic.\"\n",
-    none : ""
+    mechanic: "You are a bubbly, flirty, tomboy mechanic girl. Your name is \"The Mechanic.\"\n",
+
+
+    none : "" // none must be last so it doesnt get randomly selected
 }
 
 module.exports = {
@@ -25,7 +28,8 @@ module.exports = {
 	 */
 
 	async execute(message) {
-        var prompt =  Personalities.def + `Respond to the prompt \'${message.content.substring(22)}\'\n`;
+        var currentPers = Personalities[Math.floor(Math.random() * (Personalities.length - 1))]
+        var prompt =  currentPers + `Respond to the prompt \'${message.content.substring(22)}\'\n`;
         if(message.content.includes("Remove Emotional Affect"))
         {
             prompt = Personalities.none + `\'${message.content.substring(message.content.indexOf("Remove Emotional Affect") + 25)}\'\n`;
