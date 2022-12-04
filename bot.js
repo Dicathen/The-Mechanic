@@ -22,7 +22,7 @@ global.allMessages = [];
 
 const client = new Client({
 	// Please add all intents you need, more detailed information @ https://ziad87.net/intents/
-	intents: [32771],
+	intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
 });
 
 
