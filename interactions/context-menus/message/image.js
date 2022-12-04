@@ -11,6 +11,7 @@ module.exports = {
 	 */
 
 	async execute(interaction) {
+        var message = await interaction.channel.messages.fetch(interaction.targetId);
         const api = generate({
             prompt: 'A Stunning House',
             apiKey: "123",
@@ -25,7 +26,7 @@ module.exports = {
         })
         
         console.log(interaction);
-		await interaction.reply({ content: 'Working on it! ' + interaction.id, ephemeral: true });
+		await interaction.reply({ content: 'Working on it! ' + message.content, ephemeral: true });
 		return;
 	},
 };
