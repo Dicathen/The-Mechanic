@@ -28,7 +28,8 @@ module.exports = {
 	 */
 
 	async execute(message) {
-        var currentPers = Personalities[Math.floor(Math.random() * (Personalities.length - 1))]
+        var index = Math.floor(Math.random() * (Personalities.length - 1));
+        var currentPers = Personalities[index]
         var prompt =  currentPers + `Respond to the prompt \'${message.content.substring(22)}\'\n`;
         if(message.content.includes("Remove Emotional Affect"))
         {
@@ -41,7 +42,7 @@ module.exports = {
                 temperature: 0.6,
                 max_tokens: 1024,
               });
-            message.reply(`${gptResponse.data.choices[0].text}`);
+            message.reply(`${index}: ${gptResponse.data.choices[0].text}`);
 
         })();
 	},
