@@ -1,4 +1,4 @@
-//const { DREAMSTUDIO_API_KEY } = require("../config.json");
+const { DREAMSTUDIO_API_KEY } = require("..../config.json");
 const { generate } = require('stability-ts')
 module.exports = {
 	data: {
@@ -25,7 +25,6 @@ module.exports = {
             console.log('Generating Complete', data)
         })
         
-        console.log(interaction);
 		await interaction.reply({ content: 'Working on it! ' + message.content, ephemeral: true });
 		return;
 	},
