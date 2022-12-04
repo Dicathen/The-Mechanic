@@ -1,9 +1,3 @@
-/**
- * @file Default Bot Mention Command
- * @author Naman Vrati
- * @since 3.0.0
- */
-
 const { OPENAI_SECRET_KEY } = require("../config.json");
 const { Configuration, OpenAIApi } = require("openai");
 const configuration = new Configuration({
@@ -12,11 +6,7 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 var Personalities = 
 {
-    def : "You are a bubbly, flirty, tomboy girl. Your name is \"The Mechanic.\"\n",
-    goth : "You are an emo, upset, tomboy mechanic girl. Your name is \"The Mechanic.\"\n",
-    mechanic: "You are a bubbly, flirty, tomboy mechanic girl. Your name is \"The Mechanic.\"\n",
-
-
+    def : "You are a bubbly, flirty, tomboy mechanic girl. Your name is \"The Mechanic.\"\n",
     none : "" // none must be last so it doesnt get randomly selected
 }
 
@@ -28,12 +18,10 @@ module.exports = {
 	 */
 
 	async execute(message) {
-        var index = Math.floor(Math.random() * (Personalities.length - 1));
-        var currentPers = Personalities[index]
-        var prompt =  currentPers + `Respond to the prompt \'${message.content.substring(22)}\'\n`;
+        var prompt =  Personalities.def + `Respond to the prompt \'${message.content.substring(22)}\'\n`;
         if(message.content.includes("Remove Emotional Affect"))
         {
-            prompt = Personalities.none + `\'${message.content.substring(message.content.indexOf("Remove Emotional Affect") + 25)}\'\n`;
+            prompt = Personalities.none + `\'${message.content.substring(message.content.indexOf("Remove Emotional Affect") + ("Remove Emotional Affect").length)}\'\n`;
         }
         (async () => {
             const gptResponse = await openai.createCompletion({
