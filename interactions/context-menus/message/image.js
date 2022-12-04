@@ -1,4 +1,4 @@
-import { generate } from 'stability-ts'
+const { generate } = require('stability-ts')
 const { DREAMSTUDIO_API_KEY } = require("../config.json");
 module.exports = {
 	data: {
