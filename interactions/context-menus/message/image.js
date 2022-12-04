@@ -1,4 +1,4 @@
-const { DREAMSTUDIO_API_KEY } = require("../config.json");
+//const { DREAMSTUDIO_API_KEY } = require("../config.json");
 const { generate } = require('stability-ts')
 module.exports = {
 	data: {
@@ -13,7 +13,7 @@ module.exports = {
 	async execute(interaction) {
         const api = generate({
             prompt: 'A Stunning House',
-            apiKey: DREAMSTUDIO_API_KEY,
+            apiKey: "123",
         })
           
         api.on('image', ({ buffer, filePath }) => {
