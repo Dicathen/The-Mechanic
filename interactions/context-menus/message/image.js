@@ -33,10 +33,12 @@ module.exports = {
         })
           
         api.on('image', ({ buffer, filePath }) => {
-            filePath = filePath.substring(filePath.search("images"));
-            console.log('Image', filePath)
+            filePath = "./" + filePath.substring(filePath.search("images"));
+            
             const attachment = new MessageAttachment(filePath);
-            interaction.followUp({ files: ["./" + filePath] });
+            const img = `attachment://${filePath}`;
+            const embed = new MessageEmbed().setTitle(message.content).setThumbnail(img);
+            interaction.followUp({embeds: [embed], attachments: attachment});
             //fs.unlink(filePath, callbackFunction)
         })
           
