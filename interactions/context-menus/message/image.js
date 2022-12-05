@@ -36,9 +36,7 @@ module.exports = {
             filePath = filePath.substring(filePath.search("images"));
             console.log('Image', filePath)
             const attachment = new MessageAttachment(filePath);
-            const img = `attachment://${filePath}`;
-            const embed = new MessageEmbed().setTitle(message.content).setThumbnail(img);
-            interaction.followUp({embeds: [embed], attachments: attachment});
+            interaction.followUp({ files: ["./" + filePath] });
             //fs.unlink(filePath, callbackFunction)
         })
           
