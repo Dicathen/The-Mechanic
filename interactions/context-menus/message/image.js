@@ -40,12 +40,17 @@ module.exports = {
             
             console.log(filePath)
             const embed = new MessageEmbed()
-            .attachFiles([{ name: requestId, attachment: filePath }])
             .setImage('attachment://' + filePath);
 
             console.log(embed);
 
-            interaction.followUp({embeds: [embed]});
+            interaction.followUp({embeds: [embed], files: [
+                { 
+                  attachment: `./${filePath}`,
+                  name: `${requestId}.png` 
+                }
+            ]});
+            
             //fs.unlink(filePath, callbackFunction)
         })
           
