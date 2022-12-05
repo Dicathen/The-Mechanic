@@ -39,7 +39,7 @@ module.exports = {
             filePath = filePath.substring(filePath.search("images"));
             
             const embed = new MessageEmbed()
-            .setTitle(`\"${message.content}\"`);
+            .setDescription(`\"${message.content}\"`);
             
             message.channel.send({embeds:[embed]});
             message.channel.send({files: [
