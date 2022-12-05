@@ -41,17 +41,15 @@ module.exports = {
             const embed = new MessageEmbed()
             .setTitle(`\"${message.content}\"`);
             
-
             message.channel.send({embeds:[embed]});
-
-            interaction.followUp({files: [
+            message.channel.send({files: [
                 { 
                   attachment: `./${filePath}`,
                   name: `${requestId}.png` 
                 }
             ]});
 
-            //fs.unlink(filePath, callbackFunction)
+            fs.unlink(filePath)
         })
           
         api.on('end', (data) => {
