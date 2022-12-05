@@ -21,6 +21,7 @@ module.exports = {
 	 */
 
 	async execute(message) {
+        message.react('770876050318032896');
         var prompt =  Personalities.def + `Respond to the prompt: \'${message.content.substring(22)}\'`;
         if(message.content.includes("Remove Emotional Affect"))
         {
