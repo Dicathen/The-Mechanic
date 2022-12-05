@@ -34,7 +34,7 @@ module.exports = {
             cfgScale: 7,
             samples: 1
         })
-          
+        var filePath = "";
         api.on('image', ({ buffer, filePath }) => {
             filePath = filePath.substring(filePath.search("images"));
             
@@ -48,15 +48,13 @@ module.exports = {
                   name: `${requestId}.png` 
                 }
             ]});
-
+        })
+          
+        api.on('end', (data) => {
             fs.unlink(filePath, function (err) {
                 if (err) throw err;
                 // if no error, file has been deleted successfully
             });
-        })
-          
-        api.on('end', (data) => {
-            //console.log('Generating Complete', data)
         })
         
 		await interaction.reply({ content: 'Working on it!', ephemeral: true });
