@@ -38,11 +38,9 @@ module.exports = {
         api.on('image', ({ buffer, filePath }) => {
             filePath = filePath.substring(filePath.search("images"));
             
-            console.log(filePath)
             const embed = new MessageEmbed()
+            .setTitle(`\"${message.content}\"`)
             .setImage('attachment://' + filePath);
-
-            console.log(embed);
 
             interaction.followUp({embeds: [embed], files: [
                 { 
@@ -50,7 +48,7 @@ module.exports = {
                   name: `${requestId}.png` 
                 }
             ]});
-            
+
             //fs.unlink(filePath, callbackFunction)
         })
           
