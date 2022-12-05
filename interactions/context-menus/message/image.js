@@ -28,7 +28,7 @@ module.exports = {
           
         api.on('image', ({ buffer, filePath }) => {
             console.log('Image', buffer, filePath)
-            interaction.followUp({content: filePath});
+            interaction.followUp({attachments: filePath});
         })
           
         api.on('end', (data) => {
