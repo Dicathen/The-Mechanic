@@ -23,7 +23,7 @@ module.exports = {
             width: 512,
             height: 512,
             diffusion:'k_lms',
-            outDir: process.cwd() + '\\images\\' + uuid4(),
+            outDir: process.cwd() + '\\images\\' + uuid4.uuid4(),
             steps: 20,
             cfgScale: 7,
             samples: 1
