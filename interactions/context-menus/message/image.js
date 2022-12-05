@@ -14,7 +14,6 @@ module.exports = {
 
 	async execute(interaction) {
         var message = await interaction.channel.messages.fetch(interaction.targetId);
-        console.log(message.content);
         const api = generate({
             prompt: message.content,
             apiKey: DREAMSTUDIO_API_KEY,
@@ -29,7 +28,8 @@ module.exports = {
         })
           
         api.on('image', ({ buffer, filePath }) => {
-            console.log('Image', buffer, filePath)
+            
+            console.log('Image', typeof(filePath))
             const attachment = new MessageAttachment(filePath);
             const embed = new MessageEmbed().setTitle(message.content).setImage(`attachment:/${filePath}`);
             interaction.followUp({embeds: [embed], attachments: attachment});
