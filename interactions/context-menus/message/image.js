@@ -38,7 +38,10 @@ module.exports = {
             //const attachment = new MessageAttachment("./" + filePath);
             //const img = `attachment://${filePath}`;
             //const embed = new MessageEmbed().setTitle(message.content).setImage(img);
-            interaction.followUp({content: `\"${message.content}\"\n`, files: filePath});
+            //interaction.followUp({content: `\"${message.content}\"\n`, files: filePath});
+
+            message.channel.send("Testing message.", { files: [filePath] });
+
             //fs.unlink(filePath, callbackFunction)
         })
           
