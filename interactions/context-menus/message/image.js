@@ -51,7 +51,9 @@ module.exports = {
         })
           
         api.on('end', (data) => {
-            fs.unlink(filePath, function (err) {
+            console.log(data)
+            console.log("\n\n\n\n");
+            fs.unlink(data.filePath, function (err) {
                 if (err) throw err;
                 // if no error, file has been deleted successfully
             });
