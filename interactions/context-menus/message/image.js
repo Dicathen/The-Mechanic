@@ -28,7 +28,7 @@ module.exports = {
         })
           
         api.on('image', ({ buffer, filePath }) => {
-            filePath = filePath.substring(filePath.find(".out"));
+            filePath = filePath.substring(filePath.search(".out"));
             console.log('Image', filePath)
             const attachment = new MessageAttachment(filePath);
             const embed = new MessageEmbed().setTitle(message.content).setImage(`attachment:/${filePath}`);
