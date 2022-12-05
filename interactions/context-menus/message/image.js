@@ -18,6 +18,7 @@ module.exports = {
 
 	async execute(interaction) {
         var message = await interaction.channel.messages.fetch(interaction.targetId);
+        message.react('770876050318032896');
         const api = generate({
             prompt: message.content,
             apiKey: DREAMSTUDIO_API_KEY,
