@@ -39,10 +39,12 @@ module.exports = {
             filePath = filePath.substring(filePath.search("images"));
             
             const embed = new MessageEmbed()
-            .setTitle(`\"${message.content}\"`)
-            .setImage('attachment://' + filePath);
+            .setTitle(`\"${message.content}\"`);
+            
 
-            interaction.followUp({embeds: [embed], files: [
+            message.channel.send({embeds:[embed]});
+
+            interaction.followUp({files: [
                 { 
                   attachment: `./${filePath}`,
                   name: `${requestId}.png` 
