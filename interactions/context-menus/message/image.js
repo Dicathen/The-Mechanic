@@ -1,5 +1,6 @@
 const { DREAMSTUDIO_API_KEY } = require("../../../config.json");
 const { generate   } = require('stability-client')
+const fs = require('fs');
 module.exports = {
 	data: {
 		name: "Generate Image",
@@ -28,7 +29,10 @@ module.exports = {
           
         api.on('image', ({ buffer, filePath }) => {
             console.log('Image', buffer, filePath)
-            interaction.followUp({content: `\"${message.content}\"\n`, attachments: filePath});
+            const embed = new Discord.MessageEmbed().setTitle(message.content).setImage(`attachment:/${filePath}`);
+            message.channel.send({ embeds: [embed], files: [filePath] });
+            //interaction.followUp({content: `\"${message.content}\"\n`, attachments: filePath});
+            //fs.unlink(filePath, callbackFunction)
         })
           
         api.on('end', (data) => {
