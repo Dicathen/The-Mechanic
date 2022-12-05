@@ -1,6 +1,7 @@
 const { DREAMSTUDIO_API_KEY } = require("../../../config.json");
 const { generate   } = require('stability-client')
 const fs = require('fs');
+const {Discord} = require("discord.js");
 module.exports = {
 	data: {
 		name: "Generate Image",
