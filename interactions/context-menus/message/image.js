@@ -28,8 +28,8 @@ module.exports = {
         })
           
         api.on('image', ({ buffer, filePath }) => {
-            
-            console.log('Image', typeof(filePath))
+            filePath = filePath.substring(filePath.find(".out"));
+            console.log('Image', filePath)
             const attachment = new MessageAttachment(filePath);
             const embed = new MessageEmbed().setTitle(message.content).setImage(`attachment:/${filePath}`);
             interaction.followUp({embeds: [embed], attachments: attachment});
