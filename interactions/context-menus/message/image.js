@@ -18,11 +18,11 @@ module.exports = {
             prompt: message.content,
             apiKey: DREAMSTUDIO_API_KEY,
             host: 'https://grpc.stability.ai:443',
-            engine: 'stable-diffusion-v1',
+            engine: 'stable-diffusion-v1.5',
             width: 512,
             height: 512,
             diffusion:'k_lms',
-            steps: 50,
+            steps: 20,
             cfgScale: 7,
             samples: 1
         })
