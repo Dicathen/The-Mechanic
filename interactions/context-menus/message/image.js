@@ -22,7 +22,7 @@ module.exports = {
             width: 512,
             height: 512,
             diffusion:'k_lms',
-            outDir: path.join(process.cwd(), 'images', requestId),
+            outDir: process.cwd() + '\\images\\' + requestId,
             steps: 20,
             cfgScale: 7,
             samples: 1
