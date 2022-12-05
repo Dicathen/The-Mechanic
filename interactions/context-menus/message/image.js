@@ -39,7 +39,7 @@ module.exports = {
             filePath = filePath.substring(filePath.search("images"));
             
             console.log(filePath)
-            const embed = new discord.MessageEmbed()
+            const embed = new MessageEmbed()
             .attachFiles([{ name: requestId, attachment: filePath }])
             .setImage('attachment://' + filePath);
 
