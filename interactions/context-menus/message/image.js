@@ -2,6 +2,7 @@ const { DREAMSTUDIO_API_KEY } = require("../../../config.json");
 const { generate   } = require('stability-client')
 const fs = require('fs');
 const {MessageAttachment, MessageEmbed} = require("discord.js");
+const {uuid4} = require( 'uuid4');
 module.exports = {
 	data: {
 		name: "Generate Image",
@@ -22,7 +23,7 @@ module.exports = {
             width: 512,
             height: 512,
             diffusion:'k_lms',
-            outDir: process.cwd() + '\\images\\' + requestId,
+            outDir: process.cwd() + '\\images\\' + uuid4(),
             steps: 20,
             cfgScale: 7,
             samples: 1
