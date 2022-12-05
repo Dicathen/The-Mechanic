@@ -19,9 +19,11 @@ module.exports = {
 	async execute(interaction) {
         var message = await interaction.channel.messages.fetch(interaction.targetId);
         message.react('770876050318032896');
+        const requestId = uuidv4();
         const api = generate({
             prompt: message.content,
             apiKey: DREAMSTUDIO_API_KEY,
+            requestId,
             host: 'https://grpc.stability.ai:443',
             engine: 'stable-diffusion-v1',
             width: 512,
@@ -34,15 +36,16 @@ module.exports = {
         })
           
         api.on('image', ({ buffer, filePath }) => {
-            filePath = "./" + filePath.substring(filePath.search("images"));
-            //const attachment = new MessageAttachment("./" + filePath);
-            //const img = `attachment://${filePath}`;
-            //const embed = new MessageEmbed().setTitle(message.content).setImage(img);
-            //interaction.followUp({content: `\"${message.content}\"\n`, files: filePath});
+            filePath = filePath.substring(filePath.search("images"));
             
-            console.log(filePath);
-            message.channel.send("Testing message.", { files: [filePath] });
+            console.log(filePath)
+            const embed = new discord.MessageEmbed()
+            .attachFiles([{ name: requestId, attachment: filePath }])
+            .setImage('attachment://' + filePath);
 
+            console.log(embed);
+
+            interaction.followUp({embeds: [embed]});
             //fs.unlink(filePath, callbackFunction)
         })
           
