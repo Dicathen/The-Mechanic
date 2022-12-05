@@ -34,9 +34,8 @@ module.exports = {
         })
           
         api.on('image', ({ buffer, filePath }) => {
-            filePath = "./" + filePath.substring(filePath.search("images"));
-            filePath
-            const attachment = new MessageAttachment(filePath);
+            filePath = filePath.substring(filePath.search("images"));
+            const attachment = new MessageAttachment("./" + filePath);
             const img = `attachment://${filePath}`;
             const embed = new MessageEmbed().setTitle(message.content).setImage(img);
             interaction.followUp({embeds: [embed], attachments: [attachment]});
