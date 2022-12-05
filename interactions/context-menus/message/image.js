@@ -28,10 +28,11 @@ module.exports = {
           
         api.on('image', ({ buffer, filePath }) => {
             console.log('Image', buffer, filePath)
+            interaction.followUp({content: filePath});
         })
           
         api.on('end', (data) => {
-            console.log('Generating Complete', data)
+            //console.log('Generating Complete', data)
         })
         
 		await interaction.reply({ content: 'Working on it!', ephemeral: true });
