@@ -18,17 +18,18 @@ module.exports = {
             prompt: message.content,
             apiKey: DREAMSTUDIO_API_KEY,
             host: 'https://grpc.stability.ai:443',
-            engine: 'stable-diffusion-v1.5',
+            engine: 'stable-diffusion-v2',
             width: 512,
             height: 512,
             diffusion:'k_lms',
+            outDir: path.join(process.cwd(), 'images', requestId),
             steps: 20,
             cfgScale: 7,
             samples: 1
         })
           
         api.on('image', ({ buffer, filePath }) => {
-            filePath = filePath.substring(filePath.search(".out"));
+            filePath = filePath.substring(filePath.search("images"));
             console.log('Image', filePath)
             const attachment = new MessageAttachment(filePath);
             const img = `attachment://${filePath}`;
