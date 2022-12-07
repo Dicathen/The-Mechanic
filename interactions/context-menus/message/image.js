@@ -39,7 +39,7 @@ module.exports = {
             filePath = filePath.substring(filePath.search("images"));
             
             const embed = new MessageEmbed()
-            .setTitle("Generated Image")
+            .setTitle(`Generated Image by ${interaction.member.nick}`)
             .setDescription(`\"${message.content}\"`);
             
             message.channel.send({embeds:[embed]});
