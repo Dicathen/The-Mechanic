@@ -27,7 +27,7 @@ module.exports = {
         var keys = Object.keys(Personalities);
         var rnd = Math.floor(Math.random() * (keys.length - 1));
         var currentPers = Personalities[keys[rnd]];
-        console.log(currentPers);
+
         var prompt = currentPers + `Respond to the prompt: \'${message.content.substring(22)}\'`;
         if(message.content.includes("Remove Emotional Affect"))
         {
