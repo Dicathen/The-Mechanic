@@ -24,7 +24,9 @@ module.exports = {
 
 	async execute(message) {
         message.react('770876050318032896');
-        var currentPers = Personalities[Math.floor(Math.random() * Personalities.length - 1)];
+        var keys = Object.keys(Personalities);
+        var rnd = Math.floor(Math.random() * (keys.length - 1));
+        var currentPers = Personalities[keys[rnd]];
         console.log(currentPers);
         var prompt = currentPers + `Respond to the prompt: \'${message.content.substring(22)}\'`;
         if(message.content.includes("Remove Emotional Affect"))
