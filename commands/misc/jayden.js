@@ -9,7 +9,7 @@ module.exports = {
 		const voiceChannels = message.guild.channels.cache;
 		//Only get voice channels.
 		voiceChannels.filter(c => c.type === 'voice');
-		console.log(voiceChannels);
+		//console.log(voiceChannels);
 		//console.log(allChannels);
 		let count = 0;
 		for (const [id, voiceChannel] of voiceChannels) count += voiceChannel.members.size;
