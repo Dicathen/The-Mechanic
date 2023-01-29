@@ -24,8 +24,8 @@ module.exports = {
 		//Set up time of day.
 		var date = new Date();
 		date.setHours(date.getHours() - 6);
-		var day = date.getDay();
-		var time = weekday[date.getHours()];
+		var day = weekday[date.getDay()];
+		var time = date.getHours();
 		var tod = "";
 		if(time >= 0 && time < 12) {
 			tod = "morning";
