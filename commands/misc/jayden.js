@@ -35,7 +35,13 @@ module.exports = {
 			tod = "afternoon";
 		}
 		else {
-			tod = "night";
+			var rand = Math.random();
+			if(rand < 0.5) {
+				tod = "night";
+			}
+			else {
+				tod = "evening";
+			}
 		}
 
 		if(count <= 4) {
