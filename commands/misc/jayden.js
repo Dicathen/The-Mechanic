@@ -7,6 +7,7 @@ module.exports = {
 
 		//Get number of people in the voice channels.
 		const voiceChannels = message.guild.channels.cache.filter(c => c.type === 'voice');
+		console.log(voiceChannels);
 		let count = 0;
 		for (const [id, voiceChannel] of voiceChannels) count += voiceChannel.members.size;
 		console.log(count);
@@ -34,7 +35,7 @@ module.exports = {
 			tod = "afternoon";
 		}
 		else {
-			tod = "evening";
+			tod = "night";
 		}
 
 		if(count <= 4) {
