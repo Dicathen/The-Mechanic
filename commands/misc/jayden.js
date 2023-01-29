@@ -13,8 +13,8 @@ module.exports = {
 		//console.log(allChannels);
 		let count = 0;
 		for (const [id, voiceChannel] of voiceChannels) {
-			count += (voiceChannel.members.size % 8);
-			console.log(count);
+			count += voiceChannel.members.size;
+			console.log(voiceChannel.members.size);
 		}
 		console.log(count);
 
