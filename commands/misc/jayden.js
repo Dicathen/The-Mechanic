@@ -7,8 +7,8 @@ module.exports = {
 
 		//Get number of people in the voice channels.
 		const voiceChannels = message.guild.channels.cache;
-		//Only get voice channels.
-		voiceChannels.filter(c => c.type === 'voice');
+		//Only get voice channels and not text channels. Check to make sure it's a GuildVoiceChannel.
+		voiceChannels.filter(channel => channel.type === "GUILD_VOICE");
 		//console.log(voiceChannels);
 		//console.log(allChannels);
 		let count = 0;
