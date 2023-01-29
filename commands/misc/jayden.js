@@ -3,7 +3,7 @@ module.exports = {
 	description: "Gets Jayden's impression of the server",
 
 	execute(message, args) {
-		const voiceChannels = message.guild.channels.filter(c => c.type === 'voice');
+		const voiceChannels = message.guild.channels.cache.filter(c => c.type === 'voice');
 		let count = 0;
 		for (const [id, voiceChannel] of voiceChannels) count += voiceChannel.members.size;
 		var messageText = "";
