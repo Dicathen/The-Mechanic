@@ -12,7 +12,10 @@ module.exports = {
 		//console.log(voiceChannels);
 		//console.log(allChannels);
 		let count = 0;
-		for (const [id, voiceChannel] of voiceChannels) count += voiceChannel.members.size;
+		for (const [id, voiceChannel] of voiceChannels) {
+			console.log(count);
+			count += voiceChannel.members.size;
+		}
 		console.log(count);
 
 		//Set up days of the week.
