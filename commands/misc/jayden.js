@@ -21,7 +21,7 @@ module.exports = {
 		//Set up time of day.
 		var date = new Date();
 		date.setHours(date.getHours() - 6);
-		var day = date.toLocalDateString('en-US',{weekday: "long"});
+		var day = date.toLocaleDateString('en-US',{weekday: "long"});
 		var time = date.getHours();
 		var tod = "";
 		if(time >= 0 && time < 12) {
